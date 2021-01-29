@@ -45,7 +45,7 @@ class User implements UserInterface
     private $firstname;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="date")
      */
     private $birthdate;
 
@@ -75,10 +75,10 @@ class User implements UserInterface
     private $phone;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="date", nullable=true)
      */
+    private $date_new_password;
 
-    private $date_update_passwword;
 
     public function getId(): ?int
     {
@@ -104,7 +104,7 @@ class User implements UserInterface
      */
     public function getUsername(): string
     {
-        return (string) $this->email;
+        return (string)$this->email;
     }
 
     /**
@@ -131,7 +131,7 @@ class User implements UserInterface
      */
     public function getPassword(): string
     {
-        return (string) $this->password;
+        return (string)$this->password;
     }
 
     public function setPassword(string $password): self
@@ -254,15 +254,16 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getDateUpdatePasswword(): ?\DateTimeInterface
+    public function getDateNewPassword(): ?\DateTimeInterface
     {
-        return $this->date_update_passwword;
+        return $this->date_new_password;
     }
 
-    public function setDateUpdatePasswword(\DateTimeInterface $date_update_passwword): self
+    public function setDateNewPassword(?\DateTimeInterface $date_new_password): self
     {
-        $this->date_update_passwword = $date_update_passwword;
+        $this->date_new_password = $date_new_password;
 
         return $this;
     }
+
 }
