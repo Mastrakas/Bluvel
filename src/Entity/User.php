@@ -109,7 +109,7 @@ class User
         return $this;
     }
 
-    
+
     public function getMail(): ?string
     {
         return $this->mail;
