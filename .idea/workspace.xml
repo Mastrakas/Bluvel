@@ -20,6 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7a0a8f57-1afa-4210-b589-6252cb82095d" name="Default Changelist" comment="entity user">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -165,7 +166,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1611913955308</updated>
-      <workItem from="1611913956504" duration="2662000" />
+      <workItem from="1611913956504" duration="3139000" />
     </task>
     <task id="LOCAL-00001" summary="first entity user">
       <created>1611915931759</created>
