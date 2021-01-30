@@ -2,8 +2,11 @@
 
 namespace App\Form;
 
+use App\Entity\User;
 use App\Entity\UserPro;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -13,13 +16,18 @@ class UserProType extends AbstractType
     {
         $builder
             ->add('name')
+            ->add('mail')
+//            ->add('password', EntityType::class,[
+//                'class' => User::class,
+//                'choice_label' => 'password'
+//            ])
             ->add('siret')
             ->add('address')
             ->add('zipcode')
             ->add('city')
             ->add('country')
-            ->add('mail')
             ->add('phone')
+            ->add('submit', SubmitType::class)
         ;
     }
 
