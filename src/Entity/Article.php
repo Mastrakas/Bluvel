@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ArticleRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -51,6 +53,22 @@ class Article
      * @ORM\Column(type="string", length=255)
      */
     private $reference;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Order::class, inversedBy="id_article")
+     */
+    private $id_order;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Color::class, mappedBy="id_article")
+     */
+    private $id_color;
+
+    public function __construct()
+    {
+        $this->id_order = new ArrayCollection();
+        $this->id_color = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -137,6 +155,57 @@ class Article
     public function setReference(string $reference): self
     {
         $this->reference = $reference;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Order[]
+     */
+    public function getIdOrder(): Collection
+    {
+        return $this->id_order;
+    }
+
+    public function addIdOrder(Order $idOrder): self
+    {
+        if (!$this->id_order->contains($idOrder)) {
+            $this->id_order[] = $idOrder;
+        }
+
+        return $this;
+    }
+
+    public function removeIdOrder(Order $idOrder): self
+    {
+        $this->id_order->removeElement($idOrder);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Color[]
+     */
+    public function getIdColor(): Collection
+    {
+        return $this->id_color;
+    }
+
+    public function addIdColor(Color $idColor): self
+    {
+        if (!$this->id_color->contains($idColor)) {
+            $this->id_color[] = $idColor;
+            $idColor->addIdArticle($this);
+        }
+
+        return $this;
+    }
+
+    public function removeIdColor(Color $idColor): self
+    {
+        if ($this->id_color->removeElement($idColor)) {
+            $idColor->removeIdArticle($this);
+        }
 
         return $this;
     }
