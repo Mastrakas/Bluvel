@@ -19,14 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a0a8f57-1afa-4210-b589-6252cb82095d" name="Default Changelist" comment="make templates and controller">
-      <change afterPath="$PROJECT_DIR$/migrations/Version20210201134441.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Asset/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20210201130927.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20210201131013.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-    </list>
+    <list default="true" id="7a0a8f57-1afa-4210-b589-6252cb82095d" name="Default Changelist" comment="make templates and controller" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -185,7 +178,7 @@
       <option name="presentableId" value="Default" />
       <updated>1611913955308</updated>
       <workItem from="1611913956504" duration="9205000" />
-      <workItem from="1612027932526" duration="10153000" />
+      <workItem from="1612027932526" duration="10458000" />
     </task>
     <task id="LOCAL-00001" summary="first entity user">
       <created>1611915931759</created>
@@ -272,9 +265,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1612033156057" />
-    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1612187034666">
+    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1612187638279">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1612187034666" />
+    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1612187638279" />
   </component>
 </project>
