@@ -19,15 +19,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a0a8f57-1afa-4210-b589-6252cb82095d" name="Default Changelist" comment="make formtype">
-      <change afterPath="$PROJECT_DIR$/src/Controller/Professionel/ArticleController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/User/UserProController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/Pro/InsertArticle.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/User/AllArticle.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/User/ProSignUp.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/User/UserPage.html.twig" afterDir="false" />
+    <list default="true" id="7a0a8f57-1afa-4210-b589-6252cb82095d" name="Default Changelist" comment="make templates and controller">
+      <change afterPath="$PROJECT_DIR$/migrations/Version20210201134441.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Asset/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/UserProType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/UserProType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20210201130927.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20210201131013.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +35,13 @@
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -156,6 +161,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/Pro" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -179,7 +185,7 @@
       <option name="presentableId" value="Default" />
       <updated>1611913955308</updated>
       <workItem from="1611913956504" duration="9205000" />
-      <workItem from="1612027932526" duration="5171000" />
+      <workItem from="1612027932526" duration="10153000" />
     </task>
     <task id="LOCAL-00001" summary="first entity user">
       <created>1611915931759</created>
@@ -216,7 +222,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612029429671</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="make templates and controller">
+      <created>1612033150471</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1612033150471</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -239,7 +252,8 @@
     <MESSAGE value="entity user" />
     <MESSAGE value="login user" />
     <MESSAGE value="make formtype" />
-    <option name="LAST_COMMIT_MESSAGE" value="make formtype" />
+    <MESSAGE value="make templates and controller" />
+    <option name="LAST_COMMIT_MESSAGE" value="make templates and controller" />
   </component>
   <component name="WindowStateProjectService">
     <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1612030477101">
@@ -254,13 +268,13 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="604" y="336" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1612031686547" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1611925978024">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1612033156057">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1611925978024" />
-    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1612028836033">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1612033156057" />
+    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1612187034666">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1612028836033" />
+    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1612187034666" />
   </component>
 </project>

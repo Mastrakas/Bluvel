@@ -3,15 +3,39 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+
+        <link rel="stylesheet" href="{{ asset('Asset/css/style.css') }}">
 
         {% block javascripts %}{% endblock %}
     </head>
     <body>
-        {% block body %}
-        <h1>Ceci est le début du projet</h1>
-            <iframe src="https://giphy.com/embed/wn8rVP7qC8TNC" width="338" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+    {% block body %}
+        <header>
+{#            <h1 class="enseigne" >BLUVEL</h1>#}
+            <div id='warped'>
+                <span class='w0'>B</span><span class='w1'>L</span><span class='w2'>U</span><span class='w3'>V</span><span class='w4'>E</span><span class='w5'>L</span>
+            </div>
+            <nav>
+                <ul class="menu">
+                    <li><a href="#">Vêtement</a></li>
+                    <li><a href="#">Joaillerie</a> </li>
+                    <li><a href="#">Maison</a></li>
+                    <li><a href="#">Jeux/jouet</a></li>
+                    <li><a href="#">Bouffe</a></li>
+                    <li><a href="#">Boisson</a></li>
+                    <li><a href="#">Cosmétique</a></li>
+                    <li><a href="#">Multimédia</a></li>
+                </ul>
+            </nav>
 
-        {% endblock %}
+        </header>
+        <main>
+            <h1>Ceci est le début du projet</h1>
+            <iframe src="https://giphy.com/embed/wn8rVP7qC8TNC" width="338" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+        </main>
+        <footer></footer>
+
+        
+    {% endblock %}
     </body>
 </html>
