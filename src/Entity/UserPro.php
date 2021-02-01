@@ -57,6 +57,12 @@ class UserPro
      */
     private $phone;
 
+    /**
+     * @ORM\OneToOne(targetEntity=User::class, cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $id_user;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -154,6 +160,18 @@ class UserPro
     public function setPhone(string $phone): self
     {
         $this->phone = $phone;
+
+        return $this;
+    }
+
+    public function getIdUser(): ?User
+    {
+        return $this->id_user;
+    }
+
+    public function setIdUser(User $id_user): self
+    {
+        $this->id_user = $id_user;
 
         return $this;
     }
