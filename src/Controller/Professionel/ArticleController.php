@@ -18,7 +18,7 @@ class ArticleController extends AbstractController
 {
 
     /**
-     * @Route("/Article/Insert", name="insert_article")
+     * @Route("admin/article/insert", name="insert_article")
      * @param Request $request
      * @param EntityManagerInterface $entityManager
      * @return \Symfony\Component\HttpFoundation\Response
@@ -45,8 +45,61 @@ class ArticleController extends AbstractController
 
         $formView = $form->createView();
 
-        return $this->render('Pro/InsertArticle.html.twig', [
-            'form' => $formView
+        return $this->render('', [
+            'formView' => $formView
         ]);
+    }
+
+    /**
+     * @Route ("/admin/article/update/{id}", name="update_article")
+     */
+
+    public function updateArticle ($id, EntityManagerInterface $entityManager, ArticleRepository $articleRepository, Request $request) {
+
+        $article = $articleRepository->find($id);
+
+        if (is_null($article)){
+            return $this->redirectToRoute('');
+        }
+
+        $form = $this->createForm(ArticleType::class, $article);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->persist($article);
+            $entityManager->flush();
+
+            $this->addFlash('success','article modifié');
+
+            //A définir
+            //return $this->redirectToRoute();
+        }
+
+        $formView = $form->createView();
+
+        return $this->render('',
+            [
+                'formView' => $formView
+            ]);
+    }
+
+    /**
+     * @Route ("/admin/article/delete/{id}", name="delete_article")
+     */
+    public function deleteArticle ($id, ArticleRepository $articleRepository, EntityManagerInterface $entitymanager) {
+        $article = $articleRepository->find($id);
+
+        if (!is_null($article)) {
+            $entitymanager->remove($article);
+            $entitymanager->flush();
+
+            $this->addFlash(
+                'success',
+                "l'article a bien été supprimé"
+            );
+        }
+
+        return $this->redirectToRoute('');
     }
 }
