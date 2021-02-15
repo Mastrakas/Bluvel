@@ -4,6 +4,7 @@
 namespace App\Controller\User;
 
 
+use App\Entity\User;
 use App\Entity\UserPro;
 use App\Form\UserProType;
 use Doctrine\ORM\EntityManagerInterface;
@@ -12,6 +13,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Guard\PasswordAuthenticatedInterface;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 class UserProController extends AbstractController
 {
@@ -23,29 +25,42 @@ class UserProController extends AbstractController
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function NewUser(Request $request, EntityManagerInterface $entityManager, UserPasswordEncoderInterface $passwordEncoder){
-        $user = new UserPro();
+        $user = new User();
 
         $form = $this->createForm(UserProType::class, $user);
         $form->handleRequest($request);
 
-//        if ($form->isSubmitted() && $form->isValid()) {
-//
-//            $user = $form->getData();
-//
-////            $user->setPassword(
-////                $passwordEncoder->encodePassword(
-////                    $user,
-////                    $form->get('password')->getData()
-////                ));
-//
-//            $entityManager = $this->getDoctrine()->getManager();
-//
-//            $entityManager->persist($user);
-//            $entityManager->flush();
+        if ($form->isSubmitted() && $form->isValid()) {
+         $siret = $form->get('siret')->getData();
+            $user->setFirstname('null');
+
+
+            $userPro = new  UserPro();
+
+            $userPro->getId();
+            $user->setUserPro($userPro);
+
+            $userPro->setSiret($siret);
+
+            $user->getUserPro($userPro);
+
+
+            $user->setPassword(
+                $passwordEncoder->encodePassword(
+                    $user,
+                    $form->get('password')->getData()
+                ));
+
+            $entityManager = $this->getDoctrine()->getManager();
+//            $entityManager->persist($userPro);
+            $entityManager->persist($user);
+
+
+            $entityManager->flush();
 
 //            A définir
 //            return $this->redirectToRoute();
-//        }
+        }
 
 
         $formView = $form->createView();
