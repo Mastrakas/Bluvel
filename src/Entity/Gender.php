@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\GenderRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -20,38 +22,63 @@ class Gender
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $femme;
+    private $genre;
+
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\OneToMany(targetEntity=User::class, mappedBy="gender")
      */
-    private $Homme;
+    private $users;
+
+    public function __construct()
+    {
+        $this->users = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getFemme(): ?string
+    public function getGenre(): ?string
     {
-        return $this->femme;
+        return $this->genre;
     }
 
-    public function setFemme(string $femme): self
+    public function setGenre(string $genre): self
     {
-        $this->femme = $femme;
+        $this->genre = $this->genre;
 
         return $this;
     }
 
-    public function getHomme(): ?string
+
+    /**
+     * @return Collection|User[]
+     */
+    public function getUsers(): Collection
     {
-        return $this->Homme;
+        return $this->users;
     }
 
-    public function setHomme(string $Homme): self
+    public function addUser(User $user): self
     {
-        $this->Homme = $Homme;
+        if (!$this->users->contains($user)) {
+            $this->users[] = $user;
+            $user->setGender($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUser(User $user): self
+    {
+        if ($this->users->removeElement($user)) {
+            // set the owning side to null (unless already changed)
+            if ($user->getGender() === $this) {
+                $user->setGender(null);
+            }
+        }
 
         return $this;
     }
