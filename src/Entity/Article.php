@@ -55,18 +55,12 @@ class Article
     private $reference;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Order::class, inversedBy="id_article")
-     */
-    private $id_order;
-
-    /**
      * @ORM\ManyToMany(targetEntity=Color::class, mappedBy="id_article")
      */
     private $id_color;
 
     public function __construct()
     {
-        $this->id_order = new ArrayCollection();
         $this->id_color = new ArrayCollection();
     }
 
@@ -155,30 +149,6 @@ class Article
     public function setReference(string $reference): self
     {
         $this->reference = $reference;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Order[]
-     */
-    public function getIdOrder(): Collection
-    {
-        return $this->id_order;
-    }
-
-    public function addIdOrder(Order $idOrder): self
-    {
-        if (!$this->id_order->contains($idOrder)) {
-            $this->id_order[] = $idOrder;
-        }
-
-        return $this;
-    }
-
-    public function removeIdOrder(Order $idOrder): self
-    {
-        $this->id_order->removeElement($idOrder);
 
         return $this;
     }
