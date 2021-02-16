@@ -1,0 +1,501 @@
+Index: src/Entity/UserPro.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\r\n\r\nnamespace App\\Entity;\r\n\r\nuse App\\Repository\\UserProRepository;\r\nuse Doctrine\\ORM\\Mapping as ORM;\r\n\r\n/**\r\n * @ORM\\Entity(repositoryClass=UserProRepository::class)\r\n */\r\nclass UserPro\r\n{\r\n    /**\r\n     * @ORM\\Id\r\n     * @ORM\\GeneratedValue\r\n     * @ORM\\Column(type=\"integer\")\r\n     */\r\n    private $id;\r\n\r\n    /**\r\n     * @ORM\\Column(type=\"string\", length=255)\r\n     */\r\n    private $name;\r\n\r\n    /**\r\n     * @ORM\\Column(type=\"integer\")\r\n     */\r\n    private $siret;\r\n\r\n    /**\r\n     * @ORM\\Column(type=\"string\", length=255)\r\n     */\r\n    private $address;\r\n\r\n    /**\r\n     * @ORM\\Column(type=\"string\", length=10)\r\n     */\r\n    private $zipcode;\r\n\r\n    /**\r\n     * @ORM\\Column(type=\"string\", length=255)\r\n     */\r\n    private $city;\r\n\r\n    /**\r\n     * @ORM\\Column(type=\"string\", length=255)\r\n     */\r\n    private $country;\r\n\r\n    /**\r\n     * @ORM\\Column(type=\"string\", length=255)\r\n     */\r\n    private $mail;\r\n\r\n    /**\r\n     * @ORM\\Column(type=\"string\", length=30)\r\n     */\r\n    private $phone;\r\n\r\n    /**\r\n     * @ORM\\OneToOne(targetEntity=User::class, cascade={\"persist\", \"remove\"})\r\n     * @ORM\\JoinColumn(nullable=true)\r\n     */\r\n    private $id_user;\r\n\r\n    public function getId(): ?int\r\n    {\r\n        return $this->id;\r\n    }\r\n\r\n    public function getName(): ?string\r\n    {\r\n        return $this->name;\r\n    }\r\n\r\n    public function setName(string $name): self\r\n    {\r\n        $this->name = $name;\r\n\r\n        return $this;\r\n    }\r\n\r\n    public function getSiret(): ?int\r\n    {\r\n        return $this->siret;\r\n    }\r\n\r\n    public function setSiret(int $siret): self\r\n    {\r\n        $this->siret = $siret;\r\n\r\n        return $this;\r\n    }\r\n\r\n    public function getAddress(): ?string\r\n    {\r\n        return $this->address;\r\n    }\r\n\r\n    public function setAddress(string $address): self\r\n    {\r\n        $this->address = $address;\r\n\r\n        return $this;\r\n    }\r\n\r\n    public function getZipcode(): ?string\r\n    {\r\n        return $this->zipcode;\r\n    }\r\n\r\n    public function setZipcode(string $zipcode): self\r\n    {\r\n        $this->zipcode = $zipcode;\r\n\r\n        return $this;\r\n    }\r\n\r\n    public function getCity(): ?string\r\n    {\r\n        return $this->city;\r\n    }\r\n\r\n    public function setCity(string $city): self\r\n    {\r\n        $this->city = $city;\r\n\r\n        return $this;\r\n    }\r\n\r\n    public function getCountry(): ?string\r\n    {\r\n        return $this->country;\r\n    }\r\n\r\n    public function setCountry(string $country): self\r\n    {\r\n        $this->country = $country;\r\n\r\n        return $this;\r\n    }\r\n\r\n    public function getMail(): ?string\r\n    {\r\n        return $this->mail;\r\n    }\r\n\r\n    public function setMail(string $mail): self\r\n    {\r\n        $this->mail = $mail;\r\n\r\n        return $this;\r\n    }\r\n\r\n    public function getPhone(): ?string\r\n    {\r\n        return $this->phone;\r\n    }\r\n\r\n    public function setPhone(string $phone): self\r\n    {\r\n        $this->phone = $phone;\r\n\r\n        return $this;\r\n    }\r\n\r\n    public function getIdUser(): ?User\r\n    {\r\n        return $this->id_user;\r\n    }\r\n\r\n    public function setIdUser(User $id_user): self\r\n    {\r\n        $this->id_user = $id_user;\r\n\r\n        return $this;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/Entity/UserPro.php	(revision 56b23a3938f601e43c85f4216d594ffd7c70ea28)
++++ src/Entity/UserPro.php	(date 1613398312131)
+@@ -17,162 +17,30 @@
+      */
+     private $id;
+ 
+-    /**
+-     * @ORM\Column(type="string", length=255)
+-     */
+-    private $name;
+ 
+     /**
+-     * @ORM\Column(type="integer")
++     * @ORM\Column(type="string")
+      */
+     private $siret;
+ 
+-    /**
+-     * @ORM\Column(type="string", length=255)
+-     */
+-    private $address;
+-
+-    /**
+-     * @ORM\Column(type="string", length=10)
+-     */
+-    private $zipcode;
+ 
+-    /**
+-     * @ORM\Column(type="string", length=255)
+-     */
+-    private $city;
+-
+-    /**
+-     * @ORM\Column(type="string", length=255)
+-     */
+-    private $country;
+-
+-    /**
+-     * @ORM\Column(type="string", length=255)
+-     */
+-    private $mail;
+-
+-    /**
+-     * @ORM\Column(type="string", length=30)
+-     */
+-    private $phone;
+-
+-    /**
+-     * @ORM\OneToOne(targetEntity=User::class, cascade={"persist", "remove"})
+-     * @ORM\JoinColumn(nullable=true)
+-     */
+-    private $id_user;
+ 
+     public function getId(): ?int
+     {
+         return $this->id;
+     }
+ 
+-    public function getName(): ?string
+-    {
+-        return $this->name;
+-    }
+-
+-    public function setName(string $name): self
+-    {
+-        $this->name = $name;
+ 
+-        return $this;
+-    }
+-
+-    public function getSiret(): ?int
++    public function getSiret(): ?string
+     {
+         return $this->siret;
+     }
+ 
+-    public function setSiret(int $siret): self
++    public function setSiret(string  $siret): self
+     {
+         $this->siret = $siret;
+ 
+         return $this;
+     }
+ 
+-    public function getAddress(): ?string
+-    {
+-        return $this->address;
+-    }
+-
+-    public function setAddress(string $address): self
+-    {
+-        $this->address = $address;
+-
+-        return $this;
+-    }
+-
+-    public function getZipcode(): ?string
+-    {
+-        return $this->zipcode;
+-    }
+-
+-    public function setZipcode(string $zipcode): self
+-    {
+-        $this->zipcode = $zipcode;
+-
+-        return $this;
+-    }
+-
+-    public function getCity(): ?string
+-    {
+-        return $this->city;
+-    }
+-
+-    public function setCity(string $city): self
+-    {
+-        $this->city = $city;
+-
+-        return $this;
+-    }
+-
+-    public function getCountry(): ?string
+-    {
+-        return $this->country;
+-    }
+-
+-    public function setCountry(string $country): self
+-    {
+-        $this->country = $country;
+-
+-        return $this;
+-    }
+-
+-    public function getMail(): ?string
+-    {
+-        return $this->mail;
+-    }
+-
+-    public function setMail(string $mail): self
+-    {
+-        $this->mail = $mail;
+-
+-        return $this;
+-    }
+-
+-    public function getPhone(): ?string
+-    {
+-        return $this->phone;
+-    }
+-
+-    public function setPhone(string $phone): self
+-    {
+-        $this->phone = $phone;
+-
+-        return $this;
+-    }
+-
+-    public function getIdUser(): ?User
+-    {
+-        return $this->id_user;
+-    }
+-
+-    public function setIdUser(User $id_user): self
+-    {
+-        $this->id_user = $id_user;
+-
+-        return $this;
+-    }
+ }
+Index: src/Controller/User/UserProController.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\r\n\r\n\r\nnamespace App\\Controller\\User;\r\n\r\n\r\nuse App\\Entity\\UserPro;\r\nuse App\\Form\\UserProType;\r\nuse Doctrine\\ORM\\EntityManagerInterface;\r\nuse Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController;\r\nuse Symfony\\Component\\HttpFoundation\\Request;\r\nuse Symfony\\Component\\Routing\\Annotation\\Route;\r\nuse Symfony\\Component\\Security\\Core\\Encoder\\UserPasswordEncoderInterface;\r\nuse Symfony\\Component\\Security\\Guard\\PasswordAuthenticatedInterface;\r\n\r\nclass UserProController extends AbstractController\r\n{\r\n\r\n    /**\r\n     * @Route(\"/signup/pro\", name=\"signup_pro\")\r\n     * @param Request $request\r\n     * @param EntityManagerInterface $entityManager\r\n     * @return \\Symfony\\Component\\HttpFoundation\\Response\r\n     */\r\n    public function NewUser(Request $request, EntityManagerInterface $entityManager, UserPasswordEncoderInterface $passwordEncoder){\r\n        $user = new UserPro();\r\n\r\n        $form = $this->createForm(UserProType::class, $user);\r\n        $form->handleRequest($request);\r\n\r\n//        if ($form->isSubmitted() && $form->isValid()) {\r\n//\r\n//            $user = $form->getData();\r\n//\r\n////            $user->setPassword(\r\n////                $passwordEncoder->encodePassword(\r\n////                    $user,\r\n////                    $form->get('password')->getData()\r\n////                ));\r\n//\r\n//            $entityManager = $this->getDoctrine()->getManager();\r\n//\r\n//            $entityManager->persist($user);\r\n//            $entityManager->flush();\r\n\r\n//            A définir\r\n//            return $this->redirectToRoute();\r\n//        }\r\n\r\n\r\n        $formView = $form->createView();\r\n\r\n        return $this->render('User/ProSignUp.html.twig', [\r\n            'form' => $formView\r\n        ]);\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/Controller/User/UserProController.php	(revision 56b23a3938f601e43c85f4216d594ffd7c70ea28)
++++ src/Controller/User/UserProController.php	(date 1613398565656)
+@@ -4,6 +4,7 @@
+ namespace App\Controller\User;
+ 
+ 
++use App\Entity\User;
+ use App\Entity\UserPro;
+ use App\Form\UserProType;
+ use Doctrine\ORM\EntityManagerInterface;
+@@ -12,6 +13,7 @@
+ use Symfony\Component\Routing\Annotation\Route;
+ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+ use Symfony\Component\Security\Guard\PasswordAuthenticatedInterface;
++use Symfony\Component\Validator\Constraints\DateTime;
+ 
+ class UserProController extends AbstractController
+ {
+@@ -23,29 +25,42 @@
+      * @return \Symfony\Component\HttpFoundation\Response
+      */
+     public function NewUser(Request $request, EntityManagerInterface $entityManager, UserPasswordEncoderInterface $passwordEncoder){
+-        $user = new UserPro();
++        $user = new User();
+ 
+         $form = $this->createForm(UserProType::class, $user);
+         $form->handleRequest($request);
+ 
+-//        if ($form->isSubmitted() && $form->isValid()) {
+-//
+-//            $user = $form->getData();
+-//
+-////            $user->setPassword(
+-////                $passwordEncoder->encodePassword(
+-////                    $user,
+-////                    $form->get('password')->getData()
+-////                ));
+-//
+-//            $entityManager = $this->getDoctrine()->getManager();
+-//
+-//            $entityManager->persist($user);
+-//            $entityManager->flush();
++        if ($form->isSubmitted() && $form->isValid()) {
++         $siret = $form->get('siret')->getData();
++            $user->setFirstname('null');
++
++
++            $userPro = new  UserPro();
++
++            $userPro->getId();
++            $user->setUserPro($userPro);
++
++            $userPro->setSiret($siret);
++
++            $user->getUserPro($userPro);
++
++
++            $user->setPassword(
++                $passwordEncoder->encodePassword(
++                    $user,
++                    $form->get('password')->getData()
++                ));
++
++            $entityManager = $this->getDoctrine()->getManager();
++//            $entityManager->persist($userPro);
++            $entityManager->persist($user);
++
++
++            $entityManager->flush();
+ 
+ //            A définir
+ //            return $this->redirectToRoute();
+-//        }
++        }
+ 
+ 
+         $formView = $form->createView();
+Index: src/Entity/User.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\r\n\r\nnamespace App\\Entity;\r\n\r\nuse App\\Repository\\UserRepository;\r\nuse Doctrine\\Common\\Collections\\ArrayCollection;\r\nuse Doctrine\\Common\\Collections\\Collection;\r\nuse Doctrine\\ORM\\Mapping as ORM;\r\nuse Symfony\\Component\\Security\\Core\\User\\UserInterface;\r\n\r\n/**\r\n * @ORM\\Entity(repositoryClass=UserRepository::class)\r\n */\r\nclass User implements UserInterface\r\n{\r\n    /**\r\n     * @ORM\\Id\r\n     * @ORM\\GeneratedValue\r\n     * @ORM\\Column(type=\"integer\")\r\n     */\r\n    private $id;\r\n\r\n    /**\r\n     * @ORM\\Column(type=\"string\", length=180, unique=true)\r\n     */\r\n    private $email;\r\n\r\n    /**\r\n     * @ORM\\Column(type=\"json\")\r\n     */\r\n    private $roles = [];\r\n\r\n    /**\r\n     * @var string The hashed password\r\n     * @ORM\\Column(type=\"string\")\r\n     */\r\n    private $password;\r\n\r\n    /**\r\n     * @ORM\\Column(type=\"string\", length=255)\r\n     */\r\n    private $name;\r\n\r\n    /**\r\n     * @ORM\\Column(type=\"string\", length=255)\r\n     */\r\n    private $firstname;\r\n\r\n    /**\r\n     * @ORM\\Column(type=\"date\")\r\n     */\r\n    private $birthdate;\r\n\r\n    /**\r\n     * @ORM\\Column(type=\"string\", length=255)\r\n     */\r\n    private $adress;\r\n\r\n    /**\r\n     * @ORM\\Column(type=\"string\", length=255)\r\n     */\r\n    private $zipcode;\r\n\r\n    /**\r\n     * @ORM\\Column(type=\"string\", length=255)\r\n     */\r\n    private $city;\r\n\r\n    /**\r\n     * @ORM\\Column(type=\"string\", length=255)\r\n     */\r\n    private $country;\r\n\r\n    /**\r\n     * @ORM\\Column(type=\"string\", length=255)\r\n     */\r\n    private $phone;\r\n\r\n    /**\r\n     * @ORM\\Column(type=\"date\", nullable=true)\r\n     */\r\n    private $date_new_password;\r\n\r\n    /**\r\n     * @ORM\\OneToMany(targetEntity=Order::class, mappedBy=\"id_user\")\r\n     */\r\n    private $Orders;\r\n\r\n    /**\r\n     * @ORM\\ManyToOne(targetEntity=Gender::class, inversedBy=\"users\")\r\n     */\r\n    private $gender;\r\n\r\n    public function __construct()\r\n    {\r\n        $this->Orders = new ArrayCollection();\r\n    }\r\n\r\n\r\n    public function getId(): ?int\r\n    {\r\n        return $this->id;\r\n    }\r\n\r\n    public function getEmail(): ?string\r\n    {\r\n        return $this->email;\r\n    }\r\n\r\n    public function setEmail(string $email): self\r\n    {\r\n        $this->email = $email;\r\n\r\n        return $this;\r\n    }\r\n\r\n    /**\r\n     * A visual identifier that represents this user.\r\n     *\r\n     * @see UserInterface\r\n     */\r\n    public function getUsername(): string\r\n    {\r\n        return (string)$this->email;\r\n    }\r\n\r\n    /**\r\n     * @see UserInterface\r\n     */\r\n    public function getRoles(): array\r\n    {\r\n        $roles = $this->roles;\r\n        // guarantee every user at least has ROLE_USER\r\n        $roles[] = 'ROLE_USER';\r\n\r\n        return array_unique($roles);\r\n    }\r\n\r\n    public function setRoles(array $roles): self\r\n    {\r\n        $this->roles = $roles;\r\n\r\n        return $this;\r\n    }\r\n\r\n    /**\r\n     * @see UserInterface\r\n     */\r\n    public function getPassword(): string\r\n    {\r\n        return (string)$this->password;\r\n    }\r\n\r\n    public function setPassword(string $password): self\r\n    {\r\n        $this->password = $password;\r\n\r\n        return $this;\r\n    }\r\n\r\n    /**\r\n     * @see UserInterface\r\n     */\r\n    public function getSalt()\r\n    {\r\n        // not needed when using the \"bcrypt\" algorithm in security.yaml\r\n    }\r\n\r\n    /**\r\n     * @see UserInterface\r\n     */\r\n    public function eraseCredentials()\r\n    {\r\n        // If you store any temporary, sensitive data on the user, clear it here\r\n        // $this->plainPassword = null;\r\n    }\r\n\r\n    public function getName(): ?string\r\n    {\r\n        return $this->name;\r\n    }\r\n\r\n    public function setName(string $name): self\r\n    {\r\n        $this->name = $name;\r\n\r\n        return $this;\r\n    }\r\n\r\n    public function getFirstname(): ?string\r\n    {\r\n        return $this->firstname;\r\n    }\r\n\r\n    public function setFirstname(string $firstname): self\r\n    {\r\n        $this->firstname = $firstname;\r\n\r\n        return $this;\r\n    }\r\n\r\n    public function getBirthdate(): ?\\DateTimeInterface\r\n    {\r\n        return $this->birthdate;\r\n    }\r\n\r\n    public function setBirthdate(\\DateTimeInterface $birthdate): self\r\n    {\r\n        $this->birthdate = $birthdate;\r\n\r\n        return $this;\r\n    }\r\n\r\n    public function getAdress(): ?string\r\n    {\r\n        return $this->adress;\r\n    }\r\n\r\n    public function setAdress(string $adress): self\r\n    {\r\n        $this->adress = $adress;\r\n\r\n        return $this;\r\n    }\r\n\r\n    public function getZipcode(): ?string\r\n    {\r\n        return $this->zipcode;\r\n    }\r\n\r\n    public function setZipcode(string $zipcode): self\r\n    {\r\n        $this->zipcode = $zipcode;\r\n\r\n        return $this;\r\n    }\r\n\r\n    public function getCity(): ?string\r\n    {\r\n        return $this->city;\r\n    }\r\n\r\n    public function setCity(string $city): self\r\n    {\r\n        $this->city = $city;\r\n\r\n        return $this;\r\n    }\r\n\r\n    public function getCountry(): ?string\r\n    {\r\n        return $this->country;\r\n    }\r\n\r\n    public function setCountry(string $country): self\r\n    {\r\n        $this->country = $country;\r\n\r\n        return $this;\r\n    }\r\n\r\n    public function getPhone(): ?string\r\n    {\r\n        return $this->phone;\r\n    }\r\n\r\n    public function setPhone(string $phone): self\r\n    {\r\n        $this->phone = $phone;\r\n\r\n        return $this;\r\n    }\r\n\r\n    public function getDateNewPassword(): ?\\DateTimeInterface\r\n    {\r\n        return $this->date_new_password;\r\n    }\r\n\r\n    public function setDateNewPassword(?\\DateTimeInterface $date_new_password): self\r\n    {\r\n        $this->date_new_password = $date_new_password;\r\n\r\n        return $this;\r\n    }\r\n\r\n    /**\r\n     * @return Collection|Order[]\r\n     */\r\n    public function getOrders(): Collection\r\n    {\r\n        return $this->Orders;\r\n    }\r\n\r\n    public function addOrder(Order $order): self\r\n    {\r\n        if (!$this->Orders->contains($order)) {\r\n            $this->Orders[] = $order;\r\n            $order->setIdUser($this);\r\n        }\r\n\r\n        return $this;\r\n    }\r\n\r\n    public function removeOrder(Order $order): self\r\n    {\r\n        if ($this->Orders->removeElement($order)) {\r\n            // set the owning side to null (unless already changed)\r\n            if ($order->getIdUser() === $this) {\r\n                $order->setIdUser(null);\r\n            }\r\n        }\r\n\r\n        return $this;\r\n    }\r\n\r\n    public function getGender(): ?Gender\r\n    {\r\n        return $this->gender;\r\n    }\r\n\r\n    public function setGender(?Gender $gender): self\r\n    {\r\n        $this->gender = $gender;\r\n\r\n        return $this;\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/Entity/User.php	(revision 56b23a3938f601e43c85f4216d594ffd7c70ea28)
++++ src/Entity/User.php	(date 1613398149578)
+@@ -47,7 +47,7 @@
+     private $firstname;
+ 
+     /**
+-     * @ORM\Column(type="date")
++     * @ORM\Column(type="date", nullable=true)
+      */
+     private $birthdate;
+ 
+@@ -81,20 +81,17 @@
+      */
+     private $date_new_password;
+ 
+-    /**
+-     * @ORM\OneToMany(targetEntity=Order::class, mappedBy="id_user")
+-     */
+-    private $Orders;
+ 
+     /**
+      * @ORM\ManyToOne(targetEntity=Gender::class, inversedBy="users")
+      */
+     private $gender;
+ 
+-    public function __construct()
+-    {
+-        $this->Orders = new ArrayCollection();
+-    }
++    /**
++     * @ORM\OneToOne(targetEntity=UserPro::class, cascade={"persist", "remove"})
++     */
++    private $user_pro;
++
+ 
+ 
+     public function getId(): ?int
+@@ -283,35 +280,6 @@
+         return $this;
+     }
+ 
+-    /**
+-     * @return Collection|Order[]
+-     */
+-    public function getOrders(): Collection
+-    {
+-        return $this->Orders;
+-    }
+-
+-    public function addOrder(Order $order): self
+-    {
+-        if (!$this->Orders->contains($order)) {
+-            $this->Orders[] = $order;
+-            $order->setIdUser($this);
+-        }
+-
+-        return $this;
+-    }
+-
+-    public function removeOrder(Order $order): self
+-    {
+-        if ($this->Orders->removeElement($order)) {
+-            // set the owning side to null (unless already changed)
+-            if ($order->getIdUser() === $this) {
+-                $order->setIdUser(null);
+-            }
+-        }
+-
+-        return $this;
+-    }
+ 
+     public function getGender(): ?Gender
+     {
+@@ -322,6 +290,18 @@
+     {
+         $this->gender = $gender;
+ 
++        return $this;
++    }
++
++    public function getUserPro(): ?UserPro
++    {
++        return $this->user_pro;
++    }
++
++    public function setUserPro(?UserPro $user_pro): self
++    {
++        $this->user_pro = $user_pro;
++
+         return $this;
+     }
+ 
+Index: templates/User/ProSignUp.html.twig
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{% extends 'base.html.twig' %}\r\n\r\n{% block body %}\r\n\r\n    <h1>Et juste ici un petit formulaire pro</h1>\r\n\r\n    <p>Après faut imaginer aussi</p>\r\n    {{ form(form) }}\r\n{% endblock %}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- templates/User/ProSignUp.html.twig	(revision 56b23a3938f601e43c85f4216d594ffd7c70ea28)
++++ templates/User/ProSignUp.html.twig	(date 1613393069524)
+@@ -6,4 +6,6 @@
+ 
+     <p>Après faut imaginer aussi</p>
+     {{ form(form) }}
++
++{#    {{ dump(form) }}#}
+ {% endblock %}
+\ No newline at end of file
+Index: src/Form/UserProType.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/Form/UserProType.php	(revision 56b23a3938f601e43c85f4216d594ffd7c70ea28)
++++ src/Form/UserProType.php	(revision 56b23a3938f601e43c85f4216d594ffd7c70ea28)
+@@ -1,40 +0,0 @@
+-<?php
+-
+-namespace App\Form;
+-
+-use App\Entity\User;
+-use App\Entity\UserPro;
+-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+-use Symfony\Component\Form\AbstractType;
+-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+-use Symfony\Component\Form\FormBuilderInterface;
+-use Symfony\Component\OptionsResolver\OptionsResolver;
+-
+-class UserProType extends AbstractType
+-{
+-    public function buildForm(FormBuilderInterface $builder, array $options)
+-    {
+-        $builder
+-            ->add('name')
+-            ->add('mail')
+-//            ->add('password', EntityType::class,[
+-//                'class' => User::class,
+-//                'choice_label' => 'password'
+-//            ])
+-            ->add('siret')
+-            ->add('address')
+-            ->add('zipcode')
+-            ->add('city')
+-            ->add('country')
+-            ->add('phone')
+-            ->add('submit', SubmitType::class)
+-        ;
+-    }
+-
+-    public function configureOptions(OptionsResolver $resolver)
+-    {
+-        $resolver->setDefaults([
+-            'data_class' => UserPro::class,
+-        ]);
+-    }
+-}
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"BranchesTreeState\">\r\n    <expand>\r\n      <path>\r\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"LOCAL_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n      </path>\r\n      <path>\r\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n      </path>\r\n      <path>\r\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"GROUP_NODE:origin\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n      </path>\r\n    </expand>\r\n    <select />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"91b57a5b-a1a1-4a7b-90bf-aa08f5bc0f9e\" name=\"Default Changelist\" comment=\"\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_01_02_2021_14_43_[Default_Changelist]/shelved.patch\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_01_02_2021_14_43__Default_Changelist_.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Entity/Gender.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Entity/Gender.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Entity/User.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Entity/User.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Form/UserType.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Form/UserType.php\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ComposerSettings\" synchronizationState=\"SYNCHRONIZE\">\r\n    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>\r\n    <execution />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"PhpWorkspaceProjectConfiguration\">\r\n    <include_path>\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/migrations\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/lexer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/inflector\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/instantiator\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/doctrine-migrations-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/event-manager\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/dbal\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/doctrine-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/collections\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/common\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/annotations\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/cache\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/yaml\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/web-link\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/web-profiler-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/var-dumper\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/var-exporter\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/twig-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/validator\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/translation-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/twig-bridge\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/string\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/translation\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/service-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/stopwatch\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/security-http\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/serializer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/security-csrf\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/security-guard\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/security-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/security-core\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/proxy-manager-bridge\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/routing\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/property-access\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/property-info\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-php80\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/process\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-mbstring\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-php73\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-intl-normalizer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-intl-grapheme\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-intl-icu\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/options-resolver\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/phpunit-bridge\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/monolog-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/notifier\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/mime\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/monolog-bridge\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/maker-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/intl\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/mailer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/http-foundation\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/http-kernel\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/http-client\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/http-client-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/form\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/framework-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/orm\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/finder\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/flex\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/expression-language\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/filesystem\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/event-dispatcher\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/dotenv\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/error-handler\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/doctrine-bridge\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/dom-crawler\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/dependency-injection\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/deprecation-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/css-selector\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/debug-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/config\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/console\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/cache\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/cache-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/asset\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/browser-kit\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/monolog/monolog\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/apache-pack\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/laminas/laminas-eventmanager\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/laminas/laminas-zendframework-bridge\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/egulias/email-validator\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/laminas/laminas-code\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/nikic/php-parser\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sensio/framework-extra-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/twig/extra-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/twig/twig\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/link\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/log\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/container\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/event-dispatcher\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/cache\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpdocumentor/type-resolver\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/friendsofphp/proxy-manager-lts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpdocumentor/reflection-common\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/sql-formatter\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/webmozart/assert\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/persistence\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/composer\" />\r\n    </include_path>\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"1oVqu8ptk5N0MaiqPXcOTJdHWXv\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"ASKED_ADD_EXTERNAL_FILES\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\r\n    <property name=\"vue.rearranger.settings.migration\" value=\"true\" />\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"91b57a5b-a1a1-4a7b-90bf-aa08f5bc0f9e\" name=\"Default Changelist\" comment=\"\" />\r\n      <created>1613382324946</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1613382324946</updated>\r\n      <workItem from=\"1613382326252\" duration=\"1166000\" />\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/workspace.xml	(revision 56b23a3938f601e43c85f4216d594ffd7c70ea28)
++++ .idea/workspace.xml	(date 1613398566301)
+@@ -19,21 +19,20 @@
+     <select />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="91b57a5b-a1a1-4a7b-90bf-aa08f5bc0f9e" name="Default Changelist" comment="">
+-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_01_02_2021_14_43_[Default_Changelist]/shelved.patch" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_01_02_2021_14_43__Default_Changelist_.xml" beforeDir="false" />
++    <list default="true" id="91b57a5b-a1a1-4a7b-90bf-aa08f5bc0f9e" name="Default Changelist" comment="gender update">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Entity/Gender.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Gender.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Controller/User/UserProController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/User/UserProController.php" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Form/UserType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/UserType.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Entity/UserPro.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/UserPro.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Form/UserProType.php" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/templates/User/ProSignUp.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/User/ProSignUp.html.twig" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+     <option name="LAST_RESOLUTION" value="IGNORE" />
+   </component>
+-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
++  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+     <execution />
+   </component>
+@@ -165,8 +164,17 @@
+       <option name="number" value="Default" />
+       <option name="presentableId" value="Default" />
+       <updated>1613382324946</updated>
+-      <workItem from="1613382326252" duration="1166000" />
++      <workItem from="1613382326252" duration="5281000" />
++      <workItem from="1613392532148" duration="5445000" />
++    </task>
++    <task id="LOCAL-00001" summary="gender update">
++      <created>1613383695564</created>
++      <option name="number" value="00001" />
++      <option name="presentableId" value="LOCAL-00001" />
++      <option name="project" value="LOCAL" />
++      <updated>1613383695564</updated>
+     </task>
++    <option name="localTasksCounter" value="2" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -182,5 +190,20 @@
+         </entry>
+       </map>
+     </option>
++    <option name="oldMeFiltersMigrated" value="true" />
++  </component>
++  <component name="VcsManagerConfiguration">
++    <MESSAGE value="gender update" />
++    <option name="LAST_COMMIT_MESSAGE" value="gender update" />
++  </component>
++  <component name="WindowStateProjectService">
++    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1613383749337">
++      <screen x="0" y="0" width="1536" height="824" />
++    </state>
++    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1613383749337" />
++    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1613384788555">
++      <screen x="0" y="0" width="1536" height="824" />
++    </state>
++    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1613384788555" />
+   </component>
+ </project>
+\ No newline at end of file
