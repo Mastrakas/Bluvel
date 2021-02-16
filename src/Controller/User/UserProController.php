@@ -12,8 +12,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
-use Symfony\Component\Security\Guard\PasswordAuthenticatedInterface;
-use Symfony\Component\Validator\Constraints\DateTime;
+
 
 class UserProController extends AbstractController
 {
@@ -32,7 +31,7 @@ class UserProController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
          $siret = $form->get('siret')->getData();
-            $user->setFirstname('null');
+            $user->setFirstname('entreprise');
 
 
             $userPro = new  UserPro();
@@ -52,7 +51,6 @@ class UserProController extends AbstractController
                 ));
 
             $entityManager = $this->getDoctrine()->getManager();
-//            $entityManager->persist($userPro);
             $entityManager->persist($user);
 
 

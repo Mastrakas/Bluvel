@@ -81,20 +81,12 @@ class User implements UserInterface
      */
     private $date_new_password;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Order::class, mappedBy="id_user")
-     */
-    private $Orders;
 
     /**
      * @ORM\ManyToOne(targetEntity=Gender::class, inversedBy="users")
      */
     private $gender;
 
-    public function __construct()
-    {
-        $this->Orders = new ArrayCollection();
-    }
 
 
     public function getId(): ?int
@@ -283,35 +275,6 @@ class User implements UserInterface
         return $this;
     }
 
-    /**
-     * @return Collection|Order[]
-     */
-    public function getOrders(): Collection
-    {
-        return $this->Orders;
-    }
-
-    public function addOrder(Order $order): self
-    {
-        if (!$this->Orders->contains($order)) {
-            $this->Orders[] = $order;
-            $order->setIdUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removeOrder(Order $order): self
-    {
-        if ($this->Orders->removeElement($order)) {
-            // set the owning side to null (unless already changed)
-            if ($order->getIdUser() === $this) {
-                $order->setIdUser(null);
-            }
-        }
-
-        return $this;
-    }
 
     public function getGender(): ?Gender
     {
