@@ -81,23 +81,10 @@ class User implements UserInterface
      */
     private $date_new_password;
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 0b6adb7937b53a6d57d6321295c21bb3f8f57646
     /**
      * @ORM\ManyToOne(targetEntity=Gender::class, inversedBy="users")
      */
     private $gender;
-
-<<<<<<< HEAD
-    public function __construct()
-    {
-        
-    }
-=======
->>>>>>> 0b6adb7937b53a6d57d6321295c21bb3f8f57646
-
 
     public function getId(): ?int
     {
@@ -284,11 +271,7 @@ class User implements UserInterface
 
         return $this;
     }
-
-<<<<<<< HEAD
-=======
-
->>>>>>> 0b6adb7937b53a6d57d6321295c21bb3f8f57646
+    
     public function getGender(): ?Gender
     {
         return $this->gender;
