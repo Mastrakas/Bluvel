@@ -21,22 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="91b57a5b-a1a1-4a7b-90bf-aa08f5bc0f9e" name="Default Changelist" comment="gender update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20210129101919.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20210129102133.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20210129110308.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20210129111526.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20210201132640.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20210201133120.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20210201134344.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20210215100225.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20210215103053.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20210215103645.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/User/UserProController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/User/UserProController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/UserPro.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/UserPro.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/UserProType.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/User/ProSignUp.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/User/ProSignUp.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,7 +162,8 @@
       <option name="presentableId" value="Default" />
       <updated>1613382324946</updated>
       <workItem from="1613382326252" duration="5281000" />
-      <workItem from="1613392532148" duration="5772000" />
+      <workItem from="1613392532148" duration="6020000" />
+      <workItem from="1613464727882" duration="2286000" />
     </task>
     <task id="LOCAL-00001" summary="gender update">
       <created>1613383695564</created>
@@ -212,17 +199,17 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="147" y="65" key="MergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1613398820554" />
-    <state x="613" y="115" key="RollbackChangesDialog" timestamp="1613398973084">
+    <state x="613" y="115" key="RollbackChangesDialog" timestamp="1613466593732">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="613" y="115" key="RollbackChangesDialog/0.0.1536.824@0.0.1536.824" timestamp="1613398973084" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1613383749337">
+    <state x="613" y="115" key="RollbackChangesDialog/0.0.1536.824@0.0.1536.824" timestamp="1613466593732" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1613465821228">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1613383749337" />
-    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1613398964031">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1613465821228" />
+    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1613465919888">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1613398964031" />
+    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1613465919888" />
   </component>
 </project>
