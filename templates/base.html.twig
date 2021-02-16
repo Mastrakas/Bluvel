@@ -9,12 +9,10 @@
         {% block javascripts %}{% endblock %}
     </head>
     <body>
-    {% block body %}
+
         <header>
             <h1 class="enseigne" >BLUVEL</h1>
-            <div id='warped'>
-                <span class='w0'>B</span><span class='w1'>L</span><span class='w2'>U</span><span class='w3'>V</span><span class='w4'>E</span><span class='w5'>L</span>
-            </div>
+            <span><a href="{{ path('forms_choice') }}">signup</a></span>
             <nav>
                 <ul class="menu">
                     <li><a href="#">Vêtement</a></li>
@@ -29,13 +27,18 @@
             </nav>
 
         </header>
+
+        {% block body %}
         <main>
             <h1>Ceci est le début du projet</h1>
             <iframe src="https://giphy.com/embed/wn8rVP7qC8TNC" width="338" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
         </main>
-        <footer></footer>
 
-        
     {% endblock %}
+
+        <footer>
+
+        </footer>
+
     </body>
 </html>
