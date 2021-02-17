@@ -59,6 +59,12 @@ class Article
      */
     private $id_color;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=TypeArticle::class, inversedBy="articles")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $typeArticle;
+
     public function __construct()
     {
         $this->id_color = new ArrayCollection();
@@ -176,6 +182,18 @@ class Article
         if ($this->id_color->removeElement($idColor)) {
             $idColor->removeIdArticle($this);
         }
+
+        return $this;
+    }
+
+    public function getTypeArticle(): ?TypeArticle
+    {
+        return $this->typeArticle;
+    }
+
+    public function setTypeArticle(?TypeArticle $typeArticle): self
+    {
+        $this->typeArticle = $typeArticle;
 
         return $this;
     }

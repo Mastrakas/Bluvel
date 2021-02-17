@@ -271,7 +271,7 @@ class User implements UserInterface
 
         return $this;
     }
-    
+
     public function getGender(): ?Gender
     {
         return $this->gender;

@@ -20,8 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="91b57a5b-a1a1-4a7b-90bf-aa08f5bc0f9e" name="Default Changelist" comment="gender update">
+      <change afterPath="$PROJECT_DIR$/src/Controller/ArticleController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/User/article.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Article.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Article.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/TypeArticle.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/TypeArticle.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,6 +164,11 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/User" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -170,7 +180,8 @@
       <workItem from="1613382326252" duration="5281000" />
       <workItem from="1613392532148" duration="6020000" />
       <workItem from="1613464727882" duration="2286000" />
-      <workItem from="1613468796344" duration="334000" />
+      <workItem from="1613468796344" duration="524000" />
+      <workItem from="1613552951281" duration="6215000" />
     </task>
     <task id="LOCAL-00001" summary="gender update">
       <created>1613383695564</created>
@@ -206,6 +217,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="147" y="65" key="MergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1613398820554" />
+    <state x="541" y="391" key="NewPhpFileDialog" timestamp="1613553866891">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="541" y="391" key="NewPhpFileDialog/0.0.1440.900@0.0.1440.900" timestamp="1613553866891" />
     <state x="613" y="115" key="RollbackChangesDialog" timestamp="1613466593732">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
