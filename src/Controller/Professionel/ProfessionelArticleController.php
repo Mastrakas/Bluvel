@@ -4,50 +4,41 @@
 namespace App\Controller\Professionel;
 
 
-use App\Entity\Article;
 
+
+use App\Entity\Article;
+use App\Entity\Color;
 use App\Form\ArticleType;
+use App\Repository\ColorRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 
-class ArticleController extends AbstractController
+
+class ProfessionelArticleController extends AbstractController
 {
 
     /**
      * @Route("admin/article/insert", name="insert_article")
-     * @param Request $request
-     * @param EntityManagerInterface $entityManager
-     * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function NewUser(Request $request, EntityManagerInterface $entityManager, UserPasswordEncoderInterface $passwordEncoder){
+    public function NewUser(Request $request, ColorRepository $repository){
+    //récupération des couleurs pour le choix multiple
+        // input fait manuellement pour ce champs
+        $colors = $repository->findAll();
         $article = new Article();
 
         $form = $this->createForm(ArticleType::class, $article);
+
         $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-
-            $article = $form->getData();
-
-            $entityManager = $this->getDoctrine()->getManager();
-
-            $entityManager->persist($article);
-            $entityManager->flush();
-
-//            A définir
-//            return $this->redirectToRoute();
-        }
-
 
         $formView = $form->createView();
 
-        return $this->render('', [
-            'formView' => $formView
-        ]);
+      return  $this->render('Pro/InsertArticle.html.twig',[
+          'form' => $formView,
+          'colors' => $colors
+      ]);
     }
 
     /**

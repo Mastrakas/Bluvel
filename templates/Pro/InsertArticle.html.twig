@@ -3,8 +3,21 @@
 
 {%  block body %}
 <h1>Ajout d'article</h1>
-    {{ form(form) }}
 
     <h2>Ici viens la partie ou on va s'amuser</h2>
+   {{ form_start(form) }}
 
+    <label for="color-select">Choose colors:</label>
+
+
+    <select id="color-select" multiple="true">
+        <option value="">--Please choose an option--</option>
+    {%  for color in colors %}
+        <option value="{{ color.namecolor }}" >{{ color.namecolor }}</option>
+    {%  endfor %}
+    </select>
+
+
+
+    {{ form_end(form) }}
 {% endblock %}
