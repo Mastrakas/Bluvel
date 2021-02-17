@@ -16,6 +16,15 @@ use Symfony\Component\Security\Guard\PasswordAuthenticatedInterface;
 class UserController extends AbstractController
 {
 
+
+    /**
+     * @Route ("/forms", name="forms_choice")
+     */
+    public function ChoiceForms(){
+       return $this->render('User/choicesignup.html.twig');
+    }
+
+
     /**
      * @Route("/form/signup", name="signup_page")
      * @param Request $request

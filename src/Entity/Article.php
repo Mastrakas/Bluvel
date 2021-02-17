@@ -55,9 +55,14 @@ class Article
     private $reference;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Color::class, mappedBy="id_article")
+     * @ORM\ManyToMany(targetEntity=Color::class, mappedBy="article")
      */
-    private $id_color;
+    private $color;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Gender::class, inversedBy="articles")
+     */
+    private $gender;
 
     /**
      * @ORM\ManyToOne(targetEntity=TypeArticle::class, inversedBy="articles")
@@ -67,7 +72,7 @@ class Article
 
     public function __construct()
     {
-        $this->id_color = new ArrayCollection();
+        $this->color = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -162,30 +167,31 @@ class Article
     /**
      * @return Collection|Color[]
      */
-    public function getIdColor(): Collection
+    public function getColor(): Collection
     {
-        return $this->id_color;
+        return $this->color;
     }
 
-    public function addIdColor(Color $idColor): self
+    public function addColor(Color $Color): self
     {
-        if (!$this->id_color->contains($idColor)) {
-            $this->id_color[] = $idColor;
-            $idColor->addIdArticle($this);
+        if (!$this->color->contains($Color)) {
+            $this->color[] = $Color;
+            $Color->addArticle($this);
         }
 
         return $this;
     }
 
-    public function removeIdColor(Color $idColor): self
+    public function removeColor(Color $Color): self
     {
-        if ($this->id_color->removeElement($idColor)) {
-            $idColor->removeIdArticle($this);
+        if ($this->color->removeElement($Color)) {
+            $Color->removeArticle($this);
         }
 
         return $this;
     }
 
+<<<<<<< HEAD
     public function getTypeArticle(): ?TypeArticle
     {
         return $this->typeArticle;
@@ -194,6 +200,16 @@ class Article
     public function setTypeArticle(?TypeArticle $typeArticle): self
     {
         $this->typeArticle = $typeArticle;
+=======
+    public function getGender(): ?Gender
+    {
+        return $this->gender;
+    }
+
+    public function setGender(?Gender $gender): self
+    {
+        $this->gender = $gender;
+>>>>>>> 84f4c8ffa5a6c0983882da02e1eb4fe9d49377ca
 
         return $this;
     }

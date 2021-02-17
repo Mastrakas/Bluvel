@@ -1,0 +1,143 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"BranchesTreeState\">\r\n    <expand>\r\n      <path>\r\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"LOCAL_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n      </path>\r\n      <path>\r\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n      </path>\r\n      <path>\r\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"GROUP_NODE:origin\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n      </path>\r\n    </expand>\r\n    <select />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"91b57a5b-a1a1-4a7b-90bf-aa08f5bc0f9e\" name=\"Default Changelist\" comment=\"gender update\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Controller/User/UserProController.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Controller/User/UserProController.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Entity/User.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Entity/User.php\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ComposerSettings\" doNotAsk=\"true\" synchronizationState=\"SYNCHRONIZE\">\r\n    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>\r\n    <execution />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"PhpWorkspaceProjectConfiguration\">\r\n    <include_path>\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/migrations\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/lexer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/inflector\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/instantiator\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/doctrine-migrations-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/event-manager\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/dbal\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/doctrine-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/collections\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/common\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/annotations\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/cache\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/yaml\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/web-link\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/web-profiler-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/var-dumper\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/var-exporter\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/twig-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/validator\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/translation-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/twig-bridge\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/string\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/translation\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/service-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/stopwatch\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/security-http\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/serializer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/security-csrf\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/security-guard\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/security-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/security-core\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/proxy-manager-bridge\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/routing\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/property-access\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/property-info\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-php80\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/process\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-mbstring\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-php73\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-intl-normalizer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-intl-grapheme\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-intl-icu\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/options-resolver\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/phpunit-bridge\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/monolog-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/notifier\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/mime\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/monolog-bridge\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/maker-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/intl\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/mailer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/http-foundation\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/http-kernel\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/http-client\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/http-client-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/form\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/framework-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/orm\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/finder\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/flex\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/expression-language\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/filesystem\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/event-dispatcher\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/dotenv\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/error-handler\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/doctrine-bridge\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/dom-crawler\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/dependency-injection\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/deprecation-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/css-selector\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/debug-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/config\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/console\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/cache\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/cache-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/asset\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/browser-kit\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/monolog/monolog\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/apache-pack\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/laminas/laminas-eventmanager\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/laminas/laminas-zendframework-bridge\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/egulias/email-validator\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/laminas/laminas-code\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/nikic/php-parser\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sensio/framework-extra-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/twig/extra-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/twig/twig\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/link\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/log\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/container\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/event-dispatcher\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/cache\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpdocumentor/type-resolver\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/friendsofphp/proxy-manager-lts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpdocumentor/reflection-common\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/sql-formatter\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/webmozart/assert\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/persistence\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/composer\" />\r\n    </include_path>\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"1oVqu8ptk5N0MaiqPXcOTJdHWXv\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"ASKED_ADD_EXTERNAL_FILES\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\r\n    <property name=\"vue.rearranger.settings.migration\" value=\"true\" />\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"91b57a5b-a1a1-4a7b-90bf-aa08f5bc0f9e\" name=\"Default Changelist\" comment=\"\" />\r\n      <created>1613382324946</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1613382324946</updated>\r\n      <workItem from=\"1613382326252\" duration=\"5281000\" />\r\n      <workItem from=\"1613392532148\" duration=\"6020000\" />\r\n      <workItem from=\"1613464727882\" duration=\"2286000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"gender update\">\r\n      <created>1613383695564</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1613383695564</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"2\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"gender update\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"gender update\" />\r\n  </component>\r\n  <component name=\"WindowStateProjectService\">\r\n    <state x=\"147\" y=\"65\" key=\"MergeDialog\" timestamp=\"1613398820554\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"824\" />\r\n    </state>\r\n    <state x=\"147\" y=\"65\" key=\"MergeDialog/0.0.1536.824@0.0.1536.824\" timestamp=\"1613398820554\" />\r\n    <state x=\"613\" y=\"115\" key=\"RollbackChangesDialog\" timestamp=\"1613466593732\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"824\" />\r\n    </state>\r\n    <state x=\"613\" y=\"115\" key=\"RollbackChangesDialog/0.0.1536.824@0.0.1536.824\" timestamp=\"1613466593732\" />\r\n    <state x=\"361\" y=\"145\" key=\"Vcs.Push.Dialog.v2\" timestamp=\"1613465821228\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"824\" />\r\n    </state>\r\n    <state x=\"361\" y=\"145\" key=\"Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824\" timestamp=\"1613465821228\" />\r\n    <state x=\"586\" y=\"326\" key=\"com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2\" timestamp=\"1613465919888\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"824\" />\r\n    </state>\r\n    <state x=\"586\" y=\"326\" key=\"com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824\" timestamp=\"1613465919888\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/workspace.xml	(revision 1335cbe9c8128996199922849c0baf3e77c05ca0)
++++ .idea/workspace.xml	(date 1613471158152)
+@@ -21,8 +21,8 @@
+   <component name="ChangeListManager">
+     <list default="true" id="91b57a5b-a1a1-4a7b-90bf-aa08f5bc0f9e" name="Default Changelist" comment="gender update">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Controller/User/UserProController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/User/UserProController.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Form/UserProType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/UserProType.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Form/UserType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/UserType.php" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -163,7 +163,7 @@
+       <updated>1613382324946</updated>
+       <workItem from="1613382326252" duration="5281000" />
+       <workItem from="1613392532148" duration="6020000" />
+-      <workItem from="1613464727882" duration="2286000" />
++      <workItem from="1613464727882" duration="4807000" />
+     </task>
+     <task id="LOCAL-00001" summary="gender update">
+       <created>1613383695564</created>
+@@ -207,9 +207,9 @@
+       <screen x="0" y="0" width="1536" height="824" />
+     </state>
+     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1613465821228" />
+-    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1613465919888">
++    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1613471158025">
+       <screen x="0" y="0" width="1536" height="824" />
+     </state>
+-    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1613465919888" />
++    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1613471158025" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: src/Form/UserType.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\r\n\r\nnamespace App\\Form;\r\n\r\nuse App\\Entity\\Gender;\r\nuse App\\Entity\\User;\r\nuse Symfony\\Bridge\\Doctrine\\Form\\Type\\EntityType;\r\nuse Symfony\\Component\\Form\\AbstractType;\r\nuse Symfony\\Component\\Form\\Extension\\Core\\Type\\PasswordType;\r\nuse Symfony\\Component\\Form\\Extension\\Core\\Type\\SubmitType;\r\nuse Symfony\\Component\\Form\\FormBuilderInterface;\r\nuse Symfony\\Component\\OptionsResolver\\OptionsResolver;\r\n\r\nclass UserType extends AbstractType\r\n{\r\n    public function buildForm(FormBuilderInterface $builder, array $options)\r\n    {\r\n        $builder\r\n\r\n            ->add('name')\r\n            ->add('firstname')\r\n            ->add('gender', EntityType::class,[\r\n                'class' => Gender::class,\r\n                'choice_label' => 'genre'\r\n            ])\r\n            ->add('birthdate')\r\n            ->add('email')\r\n            ->add('password', PasswordType::class)\r\n            ->add('adress')\r\n            ->add('zipcode')\r\n            ->add('city')\r\n            ->add('country')\r\n            ->add('phone')\r\n            ->add('submit', SubmitType::class)\r\n        ;\r\n    }\r\n\r\n    public function configureOptions(OptionsResolver $resolver)\r\n    {\r\n        $resolver->setDefaults([\r\n            'data_class' => User::class,\r\n        ]);\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/Form/UserType.php	(revision 0b6adb7937b53a6d57d6321295c21bb3f8f57646)
++++ src/Form/UserType.php	(date 1613468964134)
+@@ -6,10 +6,15 @@
+ use App\Entity\User;
+ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+ use Symfony\Component\Form\AbstractType;
++use Symfony\Component\Form\Extension\Core\Type\DateType;
++use Symfony\Component\Form\Extension\Core\Type\EmailType;
++use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+ use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
++use Symfony\Component\Form\Extension\Core\Type\TextType;
+ use Symfony\Component\Form\FormBuilderInterface;
+ use Symfony\Component\OptionsResolver\OptionsResolver;
++use Symfony\Component\Validator\Constraints\Date;
+ 
+ class UserType extends AbstractType
+ {
+@@ -17,20 +22,23 @@
+     {
+         $builder
+ 
+-            ->add('name')
+-            ->add('firstname')
++            ->add('name', TextType::class)
++            ->add('firstname', TextType::class)
+             ->add('gender', EntityType::class,[
+                 'class' => Gender::class,
+                 'choice_label' => 'genre'
+             ])
+-            ->add('birthdate')
+-            ->add('email')
++            ->add('birthdate',DateType::class,[
++                'widget' => 'single_text',
++                'format' => 'yyyy-MM-dd',
++            ])
++            ->add('email', EmailType::class)
+             ->add('password', PasswordType::class)
+             ->add('adress')
+-            ->add('zipcode')
++            ->add('zipcode', IntegerType::class)
+             ->add('city')
+             ->add('country')
+-            ->add('phone')
++            ->add('phone', IntegerType::class)
+             ->add('submit', SubmitType::class)
+         ;
+     }
+Index: src/Form/UserProType.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\r\n\r\nnamespace App\\Form;\r\n\r\nuse App\\Entity\\User;\r\nuse Symfony\\Component\\Form\\AbstractType;\r\nuse Symfony\\Component\\Form\\Extension\\Core\\Type\\SubmitType;\r\nuse Symfony\\Component\\Form\\FormBuilderInterface;\r\nuse Symfony\\Component\\OptionsResolver\\OptionsResolver;\r\n\r\nclass UserProType extends AbstractType\r\n{\r\n    public function buildForm(FormBuilderInterface $builder, array $options)\r\n    {\r\n        $builder\r\n            ->add('email')\r\n            ->add('password')\r\n            ->add('siret', null,[\r\n                'mapped' => false\r\n            ])\r\n            ->add('name')\r\n            ->add('adress')\r\n            ->add('zipcode')\r\n            ->add('city')\r\n            ->add('country')\r\n            ->add('phone')\r\n            ->add('submit', SubmitType::class)\r\n        ;\r\n    }\r\n\r\n    public function configureOptions(OptionsResolver $resolver)\r\n    {\r\n        $resolver->setDefaults([\r\n            'data_class' => User::class,\r\n        ]);\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/Form/UserProType.php	(revision 0b6adb7937b53a6d57d6321295c21bb3f8f57646)
++++ src/Form/UserProType.php	(date 1613470970108)
+@@ -4,7 +4,11 @@
+ 
+ use App\Entity\User;
+ use Symfony\Component\Form\AbstractType;
++use Symfony\Component\Form\Extension\Core\Type\EmailType;
++use Symfony\Component\Form\Extension\Core\Type\IntegerType;
++use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
++use Symfony\Component\Form\Extension\Core\Type\TextType;
+ use Symfony\Component\Form\FormBuilderInterface;
+ use Symfony\Component\OptionsResolver\OptionsResolver;
+ 
+@@ -13,17 +17,17 @@
+     public function buildForm(FormBuilderInterface $builder, array $options)
+     {
+         $builder
+-            ->add('email')
+-            ->add('password')
+-            ->add('siret', null,[
++            ->add('email', EmailType::class)
++            ->add('password', PasswordType::class)
++            ->add('siret', IntegerType::class,[
+                 'mapped' => false
+             ])
+-            ->add('name')
++            ->add('name', TextType::class)
+             ->add('adress')
+-            ->add('zipcode')
++            ->add('zipcode', IntegerType::class)
+             ->add('city')
+-            ->add('country')
+-            ->add('phone')
++            ->add('country', TextType::class)
++            ->add('phone', IntegerType::class)
+             ->add('submit', SubmitType::class)
+         ;
+     }

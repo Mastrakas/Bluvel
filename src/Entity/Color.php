@@ -22,16 +22,16 @@ class Color
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $name_color;
+    private $namecolor;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Article::class, inversedBy="id_color")
+     * @ORM\ManyToMany(targetEntity=Article::class, inversedBy="color")
      */
-    private $id_article;
+    private $article;
 
     public function __construct()
     {
-        $this->id_article = new ArrayCollection();
+        $this->article = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -41,12 +41,12 @@ class Color
 
     public function getNameColor(): ?string
     {
-        return $this->name_color;
+        return $this->namecolor;
     }
 
-    public function setNameColor(string $name_color): self
+    public function setNameColor(string $namecolor): self
     {
-        $this->name_color = $name_color;
+        $this->namecolor = $namecolor;
 
         return $this;
     }
@@ -54,23 +54,23 @@ class Color
     /**
      * @return Collection|Article[]
      */
-    public function getIdArticle(): Collection
+    public function getArticle(): Collection
     {
-        return $this->id_article;
+        return $this->article;
     }
 
-    public function addIdArticle(Article $idArticle): self
+    public function addArticle(Article $Article): self
     {
-        if (!$this->id_article->contains($idArticle)) {
-            $this->id_article[] = $idArticle;
+        if (!$this->article->contains($Article)) {
+            $this->article[] = $Article;
         }
 
         return $this;
     }
 
-    public function removeIdArticle(Article $idArticle): self
+    public function removeArticle(Article $Article): self
     {
-        $this->id_article->removeElement($idArticle);
+        $this->article->removeElement($Article);
 
         return $this;
     }

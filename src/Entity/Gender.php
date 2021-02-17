@@ -30,9 +30,15 @@ class Gender
      */
     private $users;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Article::class, mappedBy="gender")
+     */
+    private $articles;
+
     public function __construct()
     {
         $this->users = new ArrayCollection();
+        $this->articles = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -77,6 +83,36 @@ class Gender
             // set the owning side to null (unless already changed)
             if ($user->getGender() === $this) {
                 $user->setGender(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Article[]
+     */
+    public function getArticles(): Collection
+    {
+        return $this->articles;
+    }
+
+    public function addArticle(Article $article): self
+    {
+        if (!$this->articles->contains($article)) {
+            $this->articles[] = $article;
+            $article->setGender($this);
+        }
+
+        return $this;
+    }
+
+    public function removeArticle(Article $article): self
+    {
+        if ($this->articles->removeElement($article)) {
+            // set the owning side to null (unless already changed)
+            if ($article->getGender() === $this) {
+                $article->setGender(null);
             }
         }
 

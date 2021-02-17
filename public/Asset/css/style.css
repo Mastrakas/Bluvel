@@ -7,7 +7,6 @@ header{
     font-size: 80px;
     color: peru;
     text-decoration: underline;
-
     text-align: center;
     margin: 10px;
 }
@@ -20,37 +19,3 @@ header{
 li{
     list-style-type: none;
 }
-
-#warped {position: center; display: block; width:588pt; height:440pt;}
-
-#warped>span[class^=w]:nth-of-type(n+0){display:block; position:absolute;
-    -moz-transform-origin:50% 100%; -webkit-transform-origin:50% 100%; -o-transform-origin:50%
-100%; -ms-transform-origin:50% 100%; transform-origin:50% 100%; }
-
-#warped span{font-family:'ABeeZee';font-size:60pt;font-style:normal; text-decoration: underline;
-    line-height:1.35; white-space:pre; overflow:visible; padding:0px; margin-left: 450px}
-
-#warped .w0 {-moz-transform: rotate(-7.89rad);-webkit-transform: rotate(-7.89rad);-o-transform:
-        rotate(-7.89rad);-ms-transform: rotate(-7.89rad); transform: rotate(-7.89rad);
-    width: 40pt; height: 81pt; left: 46.96pt; top: 147.89pt;}
-
-#warped .w1 {-moz-transform: rotate(-7.51rad);-webkit-transform: rotate(-7.51rad);-o-transform:
-        rotate(-7.51rad);-ms-transform: rotate(-7.51rad); transform: rotate(-7.51rad);
-    width: 37pt; height: 81pt; left: 58.05pt; top: 79.94pt;}
-
-#warped .w2 {-moz-transform: rotate(-6.78rad);-webkit-transform: rotate(-6.78rad);-o-transform:
-        rotate(-6.78rad);-ms-transform: rotate(-6.78rad); transform: rotate(-6.78rad);
-    width: 43pt; height: 81pt; left: 98.56pt; top: 26.36pt;}
-
-#warped .w3 {-moz-transform: rotate(-5.86rad);-webkit-transform: rotate(-5.86rad);-o-transform:
-        rotate(-5.86rad);-ms-transform: rotate(-5.86rad); transform: rotate(-5.86rad);
-    width: 43pt; height: 81pt; left: 170.05pt; top: 24.91pt;}
-
-#warped .w4 {-moz-transform: rotate(-5.21rad);-webkit-transform: rotate(-5.21rad);-o-transform:
-        rotate(-5.21rad);-ms-transform: rotate(-5.21rad); transform: rotate(-5.21rad);
-    width: 37pt; height: 81pt; left: 223.25pt; top: 73.66pt;}
-
-#warped .w5 {-moz-transform: rotate(-4.81rad);-webkit-transform: rotate(-4.81rad);-o-transform:
-        rotate(-4.81rad);-ms-transform: rotate(-4.81rad); transform: rotate(-4.81rad);
-    width: 37pt; height: 81pt; left: 241.65pt; top: 138.41pt;}
-                                                                                                                                                                       </html>
