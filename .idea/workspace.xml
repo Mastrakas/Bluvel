@@ -21,14 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="91b57a5b-a1a1-4a7b-90bf-aa08f5bc0f9e" name="Default Changelist" comment="route forms signup">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20210215134640.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20210216102433.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Professionel/ArticleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Professionel/ProfessionelArticleController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Article.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Article.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Color.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Color.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Gender.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Gender.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/ArticleType.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Pro/InsertArticle.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Pro/InsertArticle.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,7 +171,7 @@
       <workItem from="1613464727882" duration="2286000" />
       <workItem from="1613551499253" duration="3727000" />
       <workItem from="1613557499337" duration="3379000" />
-      <workItem from="1613567435633" duration="5228000" />
+      <workItem from="1613567435633" duration="5887000" />
     </task>
     <task id="LOCAL-00001" summary="gender update">
       <created>1613383695564</created>
@@ -234,9 +227,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1613472521683" />
-    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1613472453949">
+    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1613573399930">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1613472453949" />
+    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1613573399930" />
   </component>
 </project>
