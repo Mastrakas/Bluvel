@@ -20,15 +20,17 @@
     <div>
         {{ form_row(form.typeArticle) }}
     </div>
+
+
     <div>
         {#si c'est un vetement il faut afficher ce champs#}
         {{ form_row(form.gender) }}
     </div>
     <div>
         <label for="#">Choose colors:</label>
-        {# choix de la couleur du produit#}
-        <select class="form-control" multiple="multiple">
 
+        {# choix de la couleur du produit#}
+        <select class="form-control" name="color" multiple="multiple">
             {%  for color in colors %}
                 <option value="{{ color.namecolor }}" >{{ color.namecolor }}</option>
             {%  endfor %}
@@ -36,26 +38,27 @@
     </div>
     <div>
         <label for="#">Choose size:</label>
-        {#   choix de la taille du produit #}
-        <select class="form-control" multiple="multiple">
 
+        {#   choix de la taille du produit #}
+        <select class="form-control" name="size" multiple="multiple">
             {%  for size in sizes %}
                 <option value="{{ size.name }}" >{{ size.name }}</option>
             {%  endfor %}
         </select>
 
     </div>
+
     <div>
         {{ form_row(form.price) }}
     </div>
     <div>
         {{ form_row(form.material) }}
     </div>
+{#    <div>#}
+{#        {{ form_row(form.picture) }}#}
+{#    </div>#}
     <div>
-        {{ form_row(form.picture) }}
-    </div>
-    <div>
-        {{ form_row(form.quantity) }}
+        {{ form_row(form.quantityUnit) }}
     </div>
     <div>
         {{ form_row(form.maintenance) }}
@@ -81,6 +84,7 @@
 
 
  {% block javascripts %}
+
      <script type="text/javascript">
          $(document).ready(function () {
              $(".form-control").select2({

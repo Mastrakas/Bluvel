@@ -27,10 +27,9 @@ class ArticleType extends AbstractType
 
             ->add('material',null,[
         'mapped' => false])
-            ->add('picture',FileType::class,[
-                'mapped' => false])
-            ->add('quantity',IntegerType::class,[
-                'mapped' => false])
+//            ->add('picture',FileType::class,[
+//                'mapped' => false])
+            ->add('quantityUnit',IntegerType::class)
             ->add('typeArticle',EntityType::class,[
                 'class' => TypeArticle::class,
                 'choice_label' => 'name'])

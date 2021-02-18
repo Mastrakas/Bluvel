@@ -25,7 +25,7 @@ class TypeArticle
     private $name;
 
     /**
-     * @ORM\OneToMany(targetEntity=Article::class, mappedBy="typeArticle")
+     * @ORM\OneToMany(targetEntity=Article::class, mappedBy="typeArticle", cascade={"persist"})
      */
     private $articles;
 

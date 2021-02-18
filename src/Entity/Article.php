@@ -42,7 +42,7 @@ class Article
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $utilisation_advice;
+    private $utilisationAdvice;
 
     /**
      * @ORM\Column(type="integer")
@@ -55,24 +55,41 @@ class Article
     private $reference;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Color::class, mappedBy="article")
+     * @ORM\ManyToMany(targetEntity=Color::class, mappedBy="article", cascade={"persist"})
      */
     private $color;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Gender::class, inversedBy="articles")
+     * @ORM\ManyToOne(targetEntity=Gender::class, inversedBy="articles", cascade={"persist"})
      */
     private $gender;
 
     /**
-     * @ORM\ManyToOne(targetEntity=TypeArticle::class, inversedBy="articles")
+     * @ORM\ManyToOne(targetEntity=TypeArticle::class, inversedBy="articles", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $typeArticle;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Size::class, inversedBy="articles", cascade={"persist"})
+     */
+    private $size;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Material::class, inversedBy="articles", cascade={"persist"})
+     */
+    private $Materiel;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $quantityUnit;
+
     public function __construct()
     {
         $this->color = new ArrayCollection();
+        $this->size = new ArrayCollection();
+        $this->Materiel = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -130,12 +147,12 @@ class Article
 
     public function getUtilisationAdvice(): ?string
     {
-        return $this->utilisation_advice;
+        return $this->utilisationAdvice;
     }
 
-    public function setUtilisationAdvice(string $utilisation_advice): self
+    public function setUtilisationAdvice(string $utilisationAdvice): self
     {
-        $this->utilisation_advice = $utilisation_advice;
+        $this->utilisationAdvice = $utilisationAdvice;
 
         return $this;
     }
@@ -200,6 +217,8 @@ class Article
     public function setTypeArticle(?TypeArticle $typeArticle): self
     {
         $this->typeArticle = $typeArticle;
+
+        return $this;
     }
     public function getGender(): ?Gender
     {
@@ -210,6 +229,66 @@ class Article
     {
         $this->gender = $gender;
 
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Size[]
+     */
+    public function getSize(): Collection
+    {
+        return $this->size;
+    }
+
+    public function addSize(Size $size): self
+    {
+        if (!$this->size->contains($size)) {
+            $this->size[] = $size;
+        }
+
+        return $this;
+    }
+
+    public function removeSize(Size $size): self
+    {
+        $this->size->removeElement($size);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Material[]
+     */
+    public function getMateriel(): Collection
+    {
+        return $this->Materiel;
+    }
+
+    public function addMateriel(Material $materiel): self
+    {
+        if (!$this->Materiel->contains($materiel)) {
+            $this->Materiel[] = $materiel;
+        }
+
+        return $this;
+    }
+
+    public function removeMateriel(Material $materiel): self
+    {
+        $this->Materiel->removeElement($materiel);
+
+        return $this;
+    }
+
+    public function getQuantityUnit(): ?int
+    {
+        return $this->quantityUnit;
+    }
+
+    public function setQuantityUnit(?int $quantityUnit): self
+    {
+        $this->quantityUnit = $quantityUnit;
 
         return $this;
     }

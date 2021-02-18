@@ -1,0 +1,342 @@
+Index: src/Controller/Professionel/ProfessionelArticleController.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\r\n\r\n\r\nnamespace App\\Controller\\Professionel;\r\n\r\n\r\n\r\n\r\nuse App\\Entity\\Article;\r\nuse App\\Entity\\Color;\r\nuse App\\Form\\ArticleType;\r\nuse App\\Repository\\ColorRepository;\r\nuse Doctrine\\ORM\\EntityManagerInterface;\r\nuse Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController;\r\nuse Symfony\\Component\\HttpFoundation\\Request;\r\nuse Symfony\\Component\\Routing\\Annotation\\Route;\r\n\r\n\r\n\r\nclass ProfessionelArticleController extends AbstractController\r\n{\r\n\r\n    /**\r\n     * @Route(\"admin/article/insert\", name=\"insert_article\")\r\n     */\r\n    public function NewUser(Request $request, ColorRepository $repository){\r\n    //récupération des couleurs pour le choix multiple\r\n        // input fait manuellement pour ce champs\r\n        $colors = $repository->findAll();\r\n        $article = new Article();\r\n\r\n        $form = $this->createForm(ArticleType::class, $article);\r\n\r\n        $form->handleRequest($request);\r\n\r\n        $formView = $form->createView();\r\n\r\n      return  $this->render('Pro/InsertArticle.html.twig',[\r\n          'form' => $formView,\r\n          'colors' => $colors\r\n      ]);\r\n    }\r\n\r\n    /**\r\n     * @Route (\"/admin/article/update/{id}\", name=\"update_article\")\r\n     */\r\n\r\n    public function updateArticle ($id, EntityManagerInterface $entityManager, ArticleRepository $articleRepository, Request $request) {\r\n\r\n        $article = $articleRepository->find($id);\r\n\r\n        if (is_null($article)){\r\n            return $this->redirectToRoute('');\r\n        }\r\n\r\n        $form = $this->createForm(ArticleType::class, $article);\r\n\r\n        $form->handleRequest($request);\r\n\r\n        if ($form->isSubmitted() && $form->isValid()) {\r\n            $entityManager->persist($article);\r\n            $entityManager->flush();\r\n\r\n            $this->addFlash('success','article modifié');\r\n\r\n            //A définir\r\n            //return $this->redirectToRoute();\r\n        }\r\n\r\n        $formView = $form->createView();\r\n\r\n        return $this->render('',\r\n            [\r\n                'formView' => $formView\r\n            ]);\r\n    }\r\n\r\n    /**\r\n     * @Route (\"/admin/article/delete/{id}\", name=\"delete_article\")\r\n     */\r\n    public function deleteArticle ($id, ArticleRepository $articleRepository, EntityManagerInterface $entitymanager) {\r\n        $article = $articleRepository->find($id);\r\n\r\n        if (!is_null($article)) {\r\n            $entitymanager->remove($article);\r\n            $entitymanager->flush();\r\n\r\n            $this->addFlash(\r\n                'success',\r\n                \"l'article a bien été supprimé\"\r\n            );\r\n        }\r\n\r\n        return $this->redirectToRoute('');\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/Controller/Professionel/ProfessionelArticleController.php	(revision 16c92dc220be1abd3ebfe58f400592318d02417b)
++++ src/Controller/Professionel/ProfessionelArticleController.php	(date 1613643572447)
+@@ -10,6 +10,7 @@
+ use App\Entity\Color;
+ use App\Form\ArticleType;
+ use App\Repository\ColorRepository;
++use App\Repository\SizeRepository;
+ use Doctrine\ORM\EntityManagerInterface;
+ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+ use Symfony\Component\HttpFoundation\Request;
+@@ -23,10 +24,15 @@
+     /**
+      * @Route("admin/article/insert", name="insert_article")
+      */
+-    public function NewUser(Request $request, ColorRepository $repository){
++    public function NewUser(Request $request,
++                            ColorRepository $repository,
++                            SizeRepository $sizeRepository){
+     //récupération des couleurs pour le choix multiple
+         // input fait manuellement pour ce champs
+         $colors = $repository->findAll();
++        $sizes = $sizeRepository->findAll();
++
++
+         $article = new Article();
+ 
+         $form = $this->createForm(ArticleType::class, $article);
+@@ -37,7 +43,8 @@
+ 
+       return  $this->render('Pro/InsertArticle.html.twig',[
+           'form' => $formView,
+-          'colors' => $colors
++          'colors' => $colors,
++          'sizes' => $sizes
+       ]);
+     }
+ 
+Index: src/Form/ArticleType.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\r\n\r\nnamespace App\\Form;\r\n\r\nuse App\\Entity\\Article;\r\nuse App\\Entity\\Color;\r\nuse App\\Entity\\Gender;\r\n\r\nuse Symfony\\Bridge\\Doctrine\\Form\\Type\\EntityType;\r\nuse Symfony\\Component\\Form\\AbstractType;\r\n\r\nuse Symfony\\Component\\Form\\Extension\\Core\\Type\\ChoiceType;\r\nuse Symfony\\Component\\Form\\Extension\\Core\\Type\\CollectionType;\r\nuse Symfony\\Component\\Form\\Extension\\Core\\Type\\SubmitType;\r\nuse Symfony\\Component\\Form\\Extension\\Core\\Type\\TextType;\r\nuse Symfony\\Component\\Form\\FormBuilderInterface;\r\nuse Symfony\\Component\\OptionsResolver\\OptionsResolver;\r\n\r\nclass ArticleType extends AbstractType\r\n{\r\n    public function buildForm(FormBuilderInterface $builder, array $options)\r\n    {\r\n        $builder\r\n            ->add('name')\r\n            ->add('description')\r\n            ->add('price')\r\n            ->add('size', null,[\r\n                'mapped' => false\r\n            ])\r\n            ->add('material',null,[\r\n        'mapped' => false])\r\n            ->add('picture',null,[\r\n                'mapped' => false])\r\n            ->add('quantity',null,[\r\n                'mapped' => false])\r\n            ->add('TypeArticle',null,[\r\n                'mapped' => false])\r\n            ->add('maintenance')\r\n            ->add('utilisation_advice')\r\n            ->add('guarantee')\r\n            ->add('reference')\r\n            ->add('gender', EntityType::class,[\r\n                'class' => Gender::class,\r\n                'choice_label' => 'genre'\r\n            ])\r\n            ->add('submit', SubmitType::class)\r\n        ;\r\n    }\r\n\r\n    public function configureOptions(OptionsResolver $resolver)\r\n    {\r\n        $resolver->setDefaults([\r\n            'data_class' => Article::class,\r\n        ]);\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/Form/ArticleType.php	(revision 16c92dc220be1abd3ebfe58f400592318d02417b)
++++ src/Form/ArticleType.php	(date 1613645240686)
+@@ -3,15 +3,14 @@
+ namespace App\Form;
+ 
+ use App\Entity\Article;
+-use App\Entity\Color;
++
+ use App\Entity\Gender;
+-
+ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+ use Symfony\Component\Form\AbstractType;
+-
+-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+-use Symfony\Component\Form\Extension\Core\Type\CollectionType;
++use Symfony\Component\Form\Extension\Core\Type\FileType;
++use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
++
+ use Symfony\Component\Form\Extension\Core\Type\TextType;
+ use Symfony\Component\Form\FormBuilderInterface;
+ use Symfony\Component\OptionsResolver\OptionsResolver;
+@@ -21,17 +20,15 @@
+     public function buildForm(FormBuilderInterface $builder, array $options)
+     {
+         $builder
+-            ->add('name')
+-            ->add('description')
++            ->add('name', TextType::class)
++            ->add('description', TextType::class)
+             ->add('price')
+-            ->add('size', null,[
+-                'mapped' => false
+-            ])
++
+             ->add('material',null,[
+         'mapped' => false])
+-            ->add('picture',null,[
++            ->add('picture',FileType::class,[
+                 'mapped' => false])
+-            ->add('quantity',null,[
++            ->add('quantity',IntegerType::class,[
+                 'mapped' => false])
+             ->add('TypeArticle',null,[
+                 'mapped' => false])
+Index: templates/base.html.twig
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"fr\">\r\n    <head>\r\n        <meta charset=\"UTF-8\">\r\n        <title>{% block title %}Welcome!{% endblock %}</title>\r\n        <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl\" crossorigin=\"anonymous\">\r\n        <link rel=\"stylesheet\" href=\"{{ asset('Asset/css/style.css') }}\">\r\n\r\n        {% block javascripts %}{% endblock %}\r\n    </head>\r\n    <body>\r\n\r\n        <header>\r\n            <h1 class=\"enseigne\" >BLUVEL</h1>\r\n            <span><a href=\"{{ path('forms_choice') }}\">signup</a></span>\r\n            <nav>\r\n                <ul class=\"menu\">\r\n                    <li><a href=\"#\">Vêtement</a></li>\r\n                    <li><a href=\"#\">Joaillerie</a> </li>\r\n                    <li><a href=\"#\">Maison</a></li>\r\n                    <li><a href=\"#\">Jeux/jouet</a></li>\r\n                    <li><a href=\"#\">Bouffe</a></li>\r\n                    <li><a href=\"#\">Boisson</a></li>\r\n                    <li><a href=\"#\">Cosmétique</a></li>\r\n                    <li><a href=\"#\">Multimédia</a></li>\r\n                </ul>\r\n            </nav>\r\n        </header>\r\n\r\n        {% block body %}\r\n        <main>\r\n            <h1>Ceci est le début du projet</h1>\r\n            <iframe src=\"https://giphy.com/embed/wn8rVP7qC8TNC\" width=\"338\" height=\"480\" frameBorder=\"0\" class=\"giphy-embed\" allowFullScreen></iframe>\r\n        </main>\r\n\r\n    {% endblock %}\r\n\r\n        <footer>\r\n\r\n        </footer>\r\n\r\n    </body>\r\n</html>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- templates/base.html.twig	(revision 16c92dc220be1abd3ebfe58f400592318d02417b)
++++ templates/base.html.twig	(date 1613642456904)
+@@ -5,29 +5,31 @@
+         <title>{% block title %}Welcome!{% endblock %}</title>
+         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+         <link rel="stylesheet" href="{{ asset('Asset/css/style.css') }}">
++        {% block select %}
+ 
+-        {% block javascripts %}{% endblock %}
++        {% endblock %}
++        
+     </head>
+     <body>
+ 
+-        <header>
+-            <h1 class="enseigne" >BLUVEL</h1>
+-            <span><a href="{{ path('forms_choice') }}">signup</a></span>
+-            <nav>
+-                <ul class="menu">
+-                    <li><a href="#">Vêtement</a></li>
+-                    <li><a href="#">Joaillerie</a> </li>
+-                    <li><a href="#">Maison</a></li>
+-                    <li><a href="#">Jeux/jouet</a></li>
+-                    <li><a href="#">Bouffe</a></li>
+-                    <li><a href="#">Boisson</a></li>
+-                    <li><a href="#">Cosmétique</a></li>
+-                    <li><a href="#">Multimédia</a></li>
+-                </ul>
+-            </nav>
+-        </header>
++    <header>
++        <h1 class="enseigne" >BLUVEL</h1>
++        <span><a href="{{ path('forms_choice') }}">signup</a></span>
++        <nav>
++            <ul class="menu">
++                <li><a href="#">Vêtement</a></li>
++                <li><a href="#">Joaillerie</a> </li>
++                <li><a href="#">Maison</a></li>
++                <li><a href="#">Jeux/jouet</a></li>
++                <li><a href="#">Bouffe</a></li>
++                <li><a href="#">Boisson</a></li>
++                <li><a href="#">Cosmétique</a></li>
++                <li><a href="#">Multimédia</a></li>
++            </ul>
++        </nav>
++    </header>
+ 
+-        {% block body %}
++    {% block body %}
+         <main>
+             <h1>Ceci est le début du projet</h1>
+             <iframe src="https://giphy.com/embed/wn8rVP7qC8TNC" width="338" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+@@ -35,9 +37,14 @@
+ 
+     {% endblock %}
+ 
+-        <footer>
++    <footer>
+ 
+-        </footer>
++    </footer>
+ 
++        {% block javascripts %}
++
++        {% endblock %}
++
++
+     </body>
+ </html>
+Index: templates/Pro/InsertArticle.html.twig
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{% extends \"base.html.twig\" %}\r\n\r\n\r\n{%  block body %}\r\n<h1>Ajout d'article</h1>\r\n\r\n    <h2>Ici viens la partie ou on va s'amuser</h2>\r\n   {{ form_start(form) }}\r\n\r\n    <label for=\"color-select\">Choose colors:</label>\r\n\r\n\r\n    <select id=\"color-select\" multiple=\"true\">\r\n        <option value=\"\">--Please choose an option--</option>\r\n    {%  for color in colors %}\r\n        <option value=\"{{ color.namecolor }}\" >{{ color.namecolor }}</option>\r\n    {%  endfor %}\r\n    </select>\r\n\r\n\r\n\r\n    {{ form_end(form) }}\r\n{% endblock %}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- templates/Pro/InsertArticle.html.twig	(revision 16c92dc220be1abd3ebfe58f400592318d02417b)
++++ templates/Pro/InsertArticle.html.twig	(date 1613645493420)
+@@ -1,23 +1,93 @@
+ {% extends "base.html.twig" %}
+ 
++{% block select %}
++    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
++    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
++
++{% endblock %}
+ 
+ {%  block body %}
+-<h1>Ajout d'article</h1>
++    <h1 class="text-center">Ajout d'article</h1>
+ 
+     <h2>Ici viens la partie ou on va s'amuser</h2>
+-   {{ form_start(form) }}
+-
+-    <label for="color-select">Choose colors:</label>
++
++    {{ form_start(form) }}
++    <div>
++        {{ form_row(form.name) }}
++    </div>
++    {{ form_row(form.description) }}
++    </div>
++    <div>
++        {{ form_row(form.TypeArticle) }}
++    </div>
++    <div>
++        {#si c'est un vetement il faut afficher ce champs#}
++        {{ form_row(form.gender) }}
++    </div>
++    <div>
++        <label for="#">Choose colors:</label>
++        {# choix de la couleur du produit#}
++        <select class="form-control" multiple="multiple">
+ 
+-
+-    <select id="color-select" multiple="true">
+-        <option value="">--Please choose an option--</option>
+-    {%  for color in colors %}
+-        <option value="{{ color.namecolor }}" >{{ color.namecolor }}</option>
+-    {%  endfor %}
+-    </select>
++            {%  for color in colors %}
++                <option value="{{ color.namecolor }}" >{{ color.namecolor }}</option>
++            {%  endfor %}
++        </select>
++    </div>
++    <div>
++        <label for="#">Choose size:</label>
++        {#   choix de la taille du produit #}
++        <select class="form-control" multiple="multiple">
++
++            {%  for size in sizes %}
++                <option value="{{ size.name }}" >{{ size.name }}</option>
++            {%  endfor %}
++        </select>
+ 
++    </div>
++    <div>
++        {{ form_row(form.price) }}
++    </div>
++    <div>
++        {{ form_row(form.material) }}
++    </div>
++    <div>
++        {{ form_row(form.picture) }}
++    </div>
++    <div>
++        {{ form_row(form.quantity) }}
++    </div>
++    <div>
++        {{ form_row(form.maintenance) }}
++    </div>
++    <div>
++        {{ form_row(form.utilisation_advice) }}
++    </div>
++    <div>
++        {{ form_row(form.guarantee) }}
++    </div>
++    <div>
++        {{ form_row(form.reference) }}
++    </div>
++    <div>
++
++        {{ form_row(form.submit) }}
++    </div>
+ 
+ 
+     {{ form_end(form) }}
+-{% endblock %}
+\ No newline at end of file
++
++{% endblock %}
++
++
++ {% block javascripts %}
++     <script type="text/javascript">
++         $(document).ready(function () {
++             $(".form-control").select2({
++                 tags: true,
++                 tokenSeparators: [',', ' ']
++             })
++         })
++     </script>
++
++ {% endblock %}
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"BranchesTreeState\">\r\n    <expand>\r\n      <path>\r\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"LOCAL_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n      </path>\r\n      <path>\r\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n      </path>\r\n      <path>\r\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"GROUP_NODE:origin\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n      </path>\r\n    </expand>\r\n    <select />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"91b57a5b-a1a1-4a7b-90bf-aa08f5bc0f9e\" name=\"Default Changelist\" comment=\"route forms signup\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/templates/base.html.twig\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/templates/base.html.twig\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ComposerSettings\" doNotAsk=\"true\" synchronizationState=\"SYNCHRONIZE\">\r\n    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>\r\n    <execution />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"PhpWorkspaceProjectConfiguration\">\r\n    <include_path>\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/migrations\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/lexer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/inflector\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/instantiator\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/doctrine-migrations-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/event-manager\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/dbal\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/doctrine-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/collections\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/common\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/annotations\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/cache\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/yaml\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/web-link\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/web-profiler-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/var-dumper\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/var-exporter\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/twig-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/validator\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/translation-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/twig-bridge\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/string\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/translation\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/service-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/stopwatch\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/security-http\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/serializer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/security-csrf\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/security-guard\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/security-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/security-core\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/proxy-manager-bridge\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/routing\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/property-access\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/property-info\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-php80\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/process\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-mbstring\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-php73\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-intl-normalizer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-intl-grapheme\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-intl-icu\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/options-resolver\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/phpunit-bridge\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/monolog-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/notifier\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/mime\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/monolog-bridge\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/maker-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/intl\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/mailer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/http-foundation\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/http-kernel\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/http-client\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/http-client-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/form\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/framework-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/orm\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/finder\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/flex\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/expression-language\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/filesystem\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/event-dispatcher\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/dotenv\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/error-handler\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/doctrine-bridge\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/dom-crawler\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/dependency-injection\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/deprecation-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/css-selector\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/debug-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/config\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/console\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/cache\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/cache-contracts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/asset\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/browser-kit\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/monolog/monolog\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/apache-pack\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/laminas/laminas-eventmanager\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/laminas/laminas-zendframework-bridge\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/egulias/email-validator\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/laminas/laminas-code\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/nikic/php-parser\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/sensio/framework-extra-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/twig/extra-bundle\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/twig/twig\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/link\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/log\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/container\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/event-dispatcher\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/psr/cache\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpdocumentor/type-resolver\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/friendsofphp/proxy-manager-lts\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpdocumentor/reflection-common\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/sql-formatter\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/webmozart/assert\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/persistence\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/composer\" />\r\n    </include_path>\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"1oVqu8ptk5N0MaiqPXcOTJdHWXv\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"ASKED_ADD_EXTERNAL_FILES\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\r\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$/templates/User\" />\r\n    <property name=\"vue.rearranger.settings.migration\" value=\"true\" />\r\n  </component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\wamp64\\www\\Bluvel\\templates\\User\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"91b57a5b-a1a1-4a7b-90bf-aa08f5bc0f9e\" name=\"Default Changelist\" comment=\"\" />\r\n      <created>1613382324946</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1613382324946</updated>\r\n      <workItem from=\"1613382326252\" duration=\"5281000\" />\r\n      <workItem from=\"1613392532148\" duration=\"6020000\" />\r\n      <workItem from=\"1613464727882\" duration=\"2286000\" />\r\n      <workItem from=\"1613551499253\" duration=\"3727000\" />\r\n      <workItem from=\"1613557499337\" duration=\"3379000\" />\r\n      <workItem from=\"1613567435633\" duration=\"5887000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"gender update\">\r\n      <created>1613383695564</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1613383695564</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"route forms signup\">\r\n      <created>1613472504214</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1613472504214</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"3\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"gender update\" />\r\n    <MESSAGE value=\"route forms signup\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"route forms signup\" />\r\n  </component>\r\n  <component name=\"WindowStateProjectService\">\r\n    <state x=\"182\" y=\"0\" key=\"#com.intellij.refactoring.rename.AutomaticRenamingDialog\" timestamp=\"1613553711430\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"824\" />\r\n    </state>\r\n    <state x=\"182\" y=\"0\" key=\"#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824\" timestamp=\"1613553711430\" />\r\n    <state x=\"147\" y=\"65\" key=\"MergeDialog\" timestamp=\"1613398820554\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"824\" />\r\n    </state>\r\n    <state x=\"147\" y=\"65\" key=\"MergeDialog/0.0.1536.824@0.0.1536.824\" timestamp=\"1613398820554\" />\r\n    <state x=\"613\" y=\"115\" key=\"RollbackChangesDialog\" timestamp=\"1613466593732\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"824\" />\r\n    </state>\r\n    <state x=\"613\" y=\"115\" key=\"RollbackChangesDialog/0.0.1536.824@0.0.1536.824\" timestamp=\"1613466593732\" />\r\n    <state x=\"361\" y=\"145\" key=\"Vcs.Push.Dialog.v2\" timestamp=\"1613472521683\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"824\" />\r\n    </state>\r\n    <state x=\"361\" y=\"145\" key=\"Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824\" timestamp=\"1613472521683\" />\r\n    <state x=\"586\" y=\"326\" key=\"com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2\" timestamp=\"1613573399930\">\r\n      <screen x=\"0\" y=\"0\" width=\"1536\" height=\"824\" />\r\n    </state>\r\n    <state x=\"586\" y=\"326\" key=\"com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824\" timestamp=\"1613573399930\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/workspace.xml	(revision 16c92dc220be1abd3ebfe58f400592318d02417b)
++++ .idea/workspace.xml	(date 1613645493921)
+@@ -21,6 +21,9 @@
+   <component name="ChangeListManager">
+     <list default="true" id="91b57a5b-a1a1-4a7b-90bf-aa08f5bc0f9e" name="Default Changelist" comment="route forms signup">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Controller/Professionel/ProfessionelArticleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Professionel/ProfessionelArticleController.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Form/ArticleType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ArticleType.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/templates/Pro/InsertArticle.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Pro/InsertArticle.html.twig" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+@@ -33,6 +36,11 @@
+     <execution />
+   </component>
+   <component name="Git.Settings">
++    <option name="RECENT_BRANCH_BY_REPOSITORY">
++      <map>
++        <entry key="$PROJECT_DIR$" value="main" />
++      </map>
++    </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
+   <component name="PhpWorkspaceProjectConfiguration">
+@@ -172,6 +180,8 @@
+       <workItem from="1613551499253" duration="3727000" />
+       <workItem from="1613557499337" duration="3379000" />
+       <workItem from="1613567435633" duration="5887000" />
++      <workItem from="1613638239319" duration="3033000" />
++      <workItem from="1613642219651" duration="3084000" />
+     </task>
+     <task id="LOCAL-00001" summary="gender update">
+       <created>1613383695564</created>
+@@ -227,9 +237,9 @@
+       <screen x="0" y="0" width="1536" height="824" />
+     </state>
+     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1613472521683" />
+-    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1613573399930">
++    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1613644791154">
+       <screen x="0" y="0" width="1536" height="824" />
+     </state>
+-    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1613573399930" />
++    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1613644791154" />
+   </component>
+ </project>
+\ No newline at end of file

@@ -25,7 +25,7 @@ class Color
     private $namecolor;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Article::class, inversedBy="color")
+     * @ORM\ManyToMany(targetEntity=Article::class, inversedBy="color", cascade={"persist"})
      */
     private $article;
 

@@ -8,9 +8,15 @@ namespace App\Controller\Professionel;
 
 use App\Entity\Article;
 use App\Entity\Color;
+use App\Entity\Gender;
+use App\Entity\Material;
+use App\Entity\Size;
+use App\Entity\TypeArticle;
 use App\Form\ArticleType;
 use App\Repository\ColorRepository;
+use App\Repository\GenderRepository;
 use App\Repository\SizeRepository;
+use App\Repository\TypeArticleRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -26,12 +32,16 @@ class ProfessionelArticleController extends AbstractController
      */
     public function NewUser(Request $request,
                             ColorRepository $repository,
-                            SizeRepository $sizeRepository){
+                            SizeRepository $sizeRepository,
+                            EntityManagerInterface $entityManager,
+                            GenderRepository $genderRepository,
+                            TypeArticleRepository $typeArticleRepository){
     //récupération des couleurs pour le choix multiple
         // input fait manuellement pour ce champs
         $colors = $repository->findAll();
         $sizes = $sizeRepository->findAll();
-
+        $gender = $genderRepository->findAll();
+        $dataTypeArticle = $typeArticleRepository->findAll();
 
         $article = new Article();
 
@@ -39,12 +49,41 @@ class ProfessionelArticleController extends AbstractController
 
         $form->handleRequest($request);
 
+
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $color = new  Color();
+            $size = new Size();
+            $material = new Material();
+
+
+            $dataColors= $request->request->get('color');
+            $dataSize = $request->request->get('size');
+            $datamaterial = $form->get('material')->getData();
+
+
+            $color->setNameColor($dataColors);
+            $article->addColor($color);
+
+            $size->setName($dataSize);
+            $article->addSize($size);
+
+            $material->setName($datamaterial);
+            $article->addMateriel($material);
+//            dd($article);
+            $entityManager->persist($article);
+//            $entityManager->flush($article);
+
+        }
+
         $formView = $form->createView();
 
       return  $this->render('Pro/InsertArticle.html.twig',[
           'form' => $formView,
           'colors' => $colors,
-          'sizes' => $sizes
+          'sizes' => $sizes,
+          'genders' => $gender,
+          'typeArticles' => $dataTypeArticle,
       ]);
     }
 

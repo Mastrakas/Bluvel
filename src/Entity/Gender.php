@@ -31,7 +31,7 @@ class Gender
     private $users;
 
     /**
-     * @ORM\OneToMany(targetEntity=Article::class, mappedBy="gender")
+     * @ORM\OneToMany(targetEntity=Article::class, mappedBy="gender", cascade={"persist"})
      */
     private $articles;
 
