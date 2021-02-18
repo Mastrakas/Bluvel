@@ -19,20 +19,22 @@
     <select />
   </component>
   <component name="ChangeListManager">
-<<<<<<< HEAD
+
     <list default="true" id="91b57a5b-a1a1-4a7b-90bf-aa08f5bc0f9e" name="Default Changelist" comment="gender update">
       <change afterPath="$PROJECT_DIR$/src/Controller/ArticleController.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/templates/User/article.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Professionel/ProfessionelArticleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Professionel/ProfessionelArticleController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/ArticleType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ArticleType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Pro/InsertArticle.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Pro/InsertArticle.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Article.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Article.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/TypeArticle.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/TypeArticle.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-=======
+
     <list default="true" id="91b57a5b-a1a1-4a7b-90bf-aa08f5bc0f9e" name="Default Changelist" comment="route forms signup">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
->>>>>>> 84f4c8ffa5a6c0983882da02e1eb4fe9d49377ca
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +46,11 @@
     <execution />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
@@ -165,6 +172,8 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/User" />
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\Bluvel\templates\User" />
     </key>
@@ -180,6 +189,8 @@
       <workItem from="1613382326252" duration="5281000" />
       <workItem from="1613392532148" duration="6020000" />
       <workItem from="1613464727882" duration="2286000" />
+      <workItem from="1613468796344" duration="524000" />
+      <workItem from="1613552951281" duration="6215000" />
       <workItem from="1613551499253" duration="3727000" />
       <workItem from="1613557499337" duration="3379000" />
       <workItem from="1613567435633" duration="5228000" />
@@ -230,6 +241,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="147" y="65" key="MergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1613398820554" />
+    <state x="541" y="391" key="NewPhpFileDialog" timestamp="1613553866891">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="541" y="391" key="NewPhpFileDialog/0.0.1440.900@0.0.1440.900" timestamp="1613553866891" />
     <state x="613" y="115" key="RollbackChangesDialog" timestamp="1613466593732">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -238,9 +253,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1613472521683" />
-    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1613472453949">
+    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1613573399930">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1613472453949" />
+    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1613573399930" />
   </component>
 </project>

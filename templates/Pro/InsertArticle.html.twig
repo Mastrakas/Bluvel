@@ -1,23 +1,93 @@
 {% extends "base.html.twig" %}
 
+{% block select %}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+{% endblock %}
 
 {%  block body %}
-<h1>Ajout d'article</h1>
+    <h1 class="text-center">Ajout d'article</h1>
 
     <h2>Ici viens la partie ou on va s'amuser</h2>
-   {{ form_start(form) }}
 
-    <label for="color-select">Choose colors:</label>
+    {{ form_start(form) }}
+    <div>
+        {{ form_row(form.name) }}
+    </div>
+    {{ form_row(form.description) }}
+    </div>
+    <div>
+        {{ form_row(form.typeArticle) }}
+    </div>
+    <div>
+        {#si c'est un vetement il faut afficher ce champs#}
+        {{ form_row(form.gender) }}
+    </div>
+    <div>
+        <label for="#">Choose colors:</label>
+        {# choix de la couleur du produit#}
+        <select class="form-control" multiple="multiple">
 
+            {%  for color in colors %}
+                <option value="{{ color.namecolor }}" >{{ color.namecolor }}</option>
+            {%  endfor %}
+        </select>
+    </div>
+    <div>
+        <label for="#">Choose size:</label>
+        {#   choix de la taille du produit #}
+        <select class="form-control" multiple="multiple">
 
-    <select id="color-select" multiple="true">
-        <option value="">--Please choose an option--</option>
-    {%  for color in colors %}
-        <option value="{{ color.namecolor }}" >{{ color.namecolor }}</option>
-    {%  endfor %}
-    </select>
+            {%  for size in sizes %}
+                <option value="{{ size.name }}" >{{ size.name }}</option>
+            {%  endfor %}
+        </select>
 
+    </div>
+    <div>
+        {{ form_row(form.price) }}
+    </div>
+    <div>
+        {{ form_row(form.material) }}
+    </div>
+    <div>
+        {{ form_row(form.picture) }}
+    </div>
+    <div>
+        {{ form_row(form.quantity) }}
+    </div>
+    <div>
+        {{ form_row(form.maintenance) }}
+    </div>
+    <div>
+        {{ form_row(form.utilisation_advice) }}
+    </div>
+    <div>
+        {{ form_row(form.guarantee) }}
+    </div>
+    <div>
+        {{ form_row(form.reference) }}
+    </div>
+    <div>
+
+        {{ form_row(form.submit) }}
+    </div>
 
 
     {{ form_end(form) }}
+
 {% endblock %}
+
+
+ {% block javascripts %}
+     <script type="text/javascript">
+         $(document).ready(function () {
+             $(".form-control").select2({
+                 tags: true,
+                 tokenSeparators: [',', ' ']
+             })
+         })
+     </script>
+
+ {% endblock %}

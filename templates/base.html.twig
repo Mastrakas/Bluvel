@@ -5,29 +5,31 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
         <link rel="stylesheet" href="{{ asset('Asset/css/style.css') }}">
+        {% block select %}
 
-        {% block javascripts %}{% endblock %}
+        {% endblock %}
+
     </head>
     <body>
 
-        <header>
-            <h1 class="enseigne" >BLUVEL</h1>
-            <span><a href="{{ path('forms_choice') }}">signup</a></span>
-            <nav>
-                <ul class="menu">
-                    <li><a href="#">Vêtement</a></li>
-                    <li><a href="#">Joaillerie</a> </li>
-                    <li><a href="#">Maison</a></li>
-                    <li><a href="#">Jeux/jouet</a></li>
-                    <li><a href="#">Bouffe</a></li>
-                    <li><a href="#">Boisson</a></li>
-                    <li><a href="{{ path('list_article', {'TypeArticle':TypeArticle.name}) }}">Cosmétique</a></li>
-                    <li><a href="#">Multimédia</a></li>
-                </ul>
-            </nav>
-        </header>
+    <header>
+        <h1 class="enseigne" >BLUVEL</h1>
+        <span><a href="{{ path('forms_choice') }}">signup</a></span>
+        <nav>
+            <ul class="menu">
+                <li><a href="#">Vêtement</a></li>
+                <li><a href="#">Joaillerie</a> </li>
+                <li><a href="#">Maison</a></li>
+                <li><a href="#">Jeux/jouet</a></li>
+                <li><a href="#">Bouffe</a></li>
+                <li><a href="#">Boisson</a></li>
+                <li><a href="#">Cosmétique</a></li>
+                <li><a href="#">Multimédia</a></li>
+            </ul>
+        </nav>
+    </header>
 
-        {% block body %}
+    {% block body %}
         <main>
             <h1>Ceci est le début du projet</h1>
             <iframe src="https://giphy.com/embed/wn8rVP7qC8TNC" width="338" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
@@ -38,6 +40,11 @@
         <footer>
 
         </footer>
+
+        {% block javascripts %}
+
+        {% endblock %}
+
 
     </body>
 </html>

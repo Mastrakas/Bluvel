@@ -191,7 +191,7 @@ class Article
         return $this;
     }
 
-<<<<<<< HEAD
+
     public function getTypeArticle(): ?TypeArticle
     {
         return $this->typeArticle;
@@ -200,7 +200,7 @@ class Article
     public function setTypeArticle(?TypeArticle $typeArticle): self
     {
         $this->typeArticle = $typeArticle;
-=======
+    }
     public function getGender(): ?Gender
     {
         return $this->gender;
@@ -209,7 +209,7 @@ class Article
     public function setGender(?Gender $gender): self
     {
         $this->gender = $gender;
->>>>>>> 84f4c8ffa5a6c0983882da02e1eb4fe9d49377ca
+
 
         return $this;
     }

@@ -10,6 +10,7 @@ use App\Entity\Article;
 use App\Entity\Color;
 use App\Form\ArticleType;
 use App\Repository\ColorRepository;
+use App\Repository\SizeRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -23,10 +24,15 @@ class ProfessionelArticleController extends AbstractController
     /**
      * @Route("admin/article/insert", name="insert_article")
      */
-    public function NewUser(Request $request, ColorRepository $repository){
+    public function NewUser(Request $request,
+                            ColorRepository $repository,
+                            SizeRepository $sizeRepository){
     //récupération des couleurs pour le choix multiple
         // input fait manuellement pour ce champs
         $colors = $repository->findAll();
+        $sizes = $sizeRepository->findAll();
+
+
         $article = new Article();
 
         $form = $this->createForm(ArticleType::class, $article);
@@ -37,7 +43,8 @@ class ProfessionelArticleController extends AbstractController
 
       return  $this->render('Pro/InsertArticle.html.twig',[
           'form' => $formView,
-          'colors' => $colors
+          'colors' => $colors,
+          'sizes' => $sizes
       ]);
     }
 
