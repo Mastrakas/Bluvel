@@ -11,15 +11,17 @@ class ArticleController extends AbstractController
 {
 
     /**
-     * @Route("/TypeArticle", name="list_article")
+     * @Route("/{name}", name="list_article")
      */
-    public function ListArticle($TypeArticle, ArticleRepository $articleRepository, TypeArticleRepository $typeArticleRepository)
+    public function ListArticle($name, ArticleRepository $articleRepository, TypeArticleRepository $typeArticleRepository)
     {
-        $ListArticle = $articleRepository->findBy($TypeArticle);
+        $ListArticle = $articleRepository->findByTypeArticle($name);
+        $categoriesNav = $typeArticleRepository->findAll();
 
-        return $this->render('article.html.twig',
+        return $this->render('User/AllArticle.html.twig',
         [
-           'ListArticle'=>$ListArticle
+           'ListArticle'=>$ListArticle,
+            'categoriesNav'=>$categoriesNav
         ]);
     }
 }

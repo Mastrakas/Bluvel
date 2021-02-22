@@ -8,6 +8,7 @@
 
         {% block javascripts %}{% endblock %}
     </head>
+
     <body>
 
         <header>
@@ -15,30 +16,27 @@
             <span><a href="{{ path('forms_choice') }}">signup</a></span>
             <nav>
                 <ul class="menu">
-                    <li><a href="#">Vêtement</a></li>
-                    <li><a href="#">Joaillerie</a> </li>
-                    <li><a href="#">Maison</a></li>
-                    <li><a href="#">Jeux/jouet</a></li>
-                    <li><a href="#">Bouffe</a></li>
-                    <li><a href="#">Boisson</a></li>
-                    <li><a href="{{ path('list_article', {'TypeArticle':TypeArticle.name}) }}">Cosmétique</a></li>
-                    <li><a href="#">Multimédia</a></li>
+                    {% for categorie in categoriesNav %}
+                     <li><a href="{{ path('list_article', {'name':categorie.name}) }}">{{ categorie.name }}</a></li>
+                    {% endfor %}
                 </ul>
             </nav>
 
         </header>
 
-        {% block body %}
+
+        {% block main %}
         <main>
             <h1>Ceci est le début du projet</h1>
             <iframe src="https://giphy.com/embed/wn8rVP7qC8TNC" width="338" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
         </main>
 
-    {% endblock %}
-
+        {% endblock %}
+        {% block footer %}
         <footer>
 
         </footer>
-
+        {% endblock %}
     </body>
+
 </html>

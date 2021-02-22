@@ -61,7 +61,7 @@ class UserPro
      * @ORM\OneToOne(targetEntity=User::class, cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=true)
      */
-    private $id_user;
+    private $idUser;
 
     public function getId(): ?int
     {
@@ -166,12 +166,12 @@ class UserPro
 
     public function getIdUser(): ?User
     {
-        return $this->id_user;
+        return $this->idUser;
     }
 
-    public function setIdUser(User $id_user): self
+    public function setIdUser(User $idUser): self
     {
-        $this->id_user = $id_user;
+        $this->idUser = $idUser;
 
         return $this;
     }
