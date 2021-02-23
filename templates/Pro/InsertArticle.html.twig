@@ -2,61 +2,78 @@
 
 {% block select %}
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
 
 {% endblock %}
 
 {%  block body %}
+
     <h1 class="text-center">Ajout d'article</h1>
 
     <h2>Ici viens la partie ou on va s'amuser</h2>
 
     {{ form_start(form) }}
-    <div>
-        {{ form_row(form.name) }}
-    </div>
-    {{ form_row(form.description) }}
-    </div>
+
     <div>
         {{ form_row(form.typeArticle) }}
     </div>
+    <div id="champs">
+        <div>
+            <label for="name">Name</label>
+
+            <input type="text" name="name[]" required>
+        </div>
+        <div>
+            <label for="ref">References</label>
+
+            <input type="text" name="reference[]" required>
+        </div>
+        <div>
+            <label for="story">Contenu</label>
+
+            <input type="text" name="description[]">
+        </div>
 
 
-    <div>
-        {#si c'est un vetement il faut afficher ce champs#}
-        {{ form_row(form.gender) }}
+        <div>
+            {#si c'est un vetement il faut afficher ce champs#}
+            {{ form_row(form.gender) }}
+        </div>
+        <div>
+            <label for="#">Choose colors:</label>
+
+            {# choix de la couleur du produit#}
+            <select class="form-control" name="color[]" id="liste">
+                {%  for color in colors %}
+                    <option value="{{ color.namecolor }}" >{{ color.namecolor }}</option>
+                {%  endfor %}
+            </select>
+        </div>
+        <div>
+            <label for="#">Choose size:</label>
+
+            {#   choix de la taille du produit #}
+            <select class="form-control" name="size[]" >
+                {%  for size in sizes %}
+                    <option value="{{ size.name }}" >{{ size.name }}</option>
+                {%  endfor %}
+            </select>
+
+        </div>
+
+        <div>
+            <label for="price">Price:</label>
+            <input type="number" id="price" name="price[]">
+        </div>
     </div>
-    <div>
-        <label for="#">Choose colors:</label>
 
-        {# choix de la couleur du produit#}
-        <select class="form-control" name="color" multiple="multiple">
-            {%  for color in colors %}
-                <option value="{{ color.namecolor }}" >{{ color.namecolor }}</option>
-            {%  endfor %}
-        </select>
-    </div>
-    <div>
-        <label for="#">Choose size:</label>
-
-        {#   choix de la taille du produit #}
-        <select class="form-control" name="size" multiple="multiple">
-            {%  for size in sizes %}
-                <option value="{{ size.name }}" >{{ size.name }}</option>
-            {%  endfor %}
-        </select>
-
-    </div>
-
-    <div>
-        {{ form_row(form.price) }}
-    </div>
+    <button type="button" onclick="addField()" >+</button>
     <div>
         {{ form_row(form.material) }}
     </div>
-{#    <div>#}
-{#        {{ form_row(form.picture) }}#}
-{#    </div>#}
+    {#    <div>#}
+    {#        {{ form_row(form.picture) }}#}
+    {#    </div>#}
     <div>
         {{ form_row(form.quantityUnit) }}
     </div>
@@ -69,11 +86,8 @@
     <div>
         {{ form_row(form.guarantee) }}
     </div>
-    <div>
-        {{ form_row(form.reference) }}
-    </div>
-    <div>
 
+    <div>
         {{ form_row(form.submit) }}
     </div>
 
@@ -85,13 +99,57 @@
 
  {% block javascripts %}
 
-     <script type="text/javascript">
-         $(document).ready(function () {
-             $(".form-control").select2({
-                 tags: true,
-                 tokenSeparators: [',', ' ']
-             })
-         })
+     <script src="{{ asset('Asset/js/insertClothes.js') }}"> </script>
+     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+     <script >
+
+         {# je genere les input name article, reference, description et price#}
+         let div = document.getElementById('champs');
+         function addInput(nam){
+             let input = document.createElement("input");
+             input.setAttribute("type", "text");
+             input.setAttribute("name", nam);
+             input.setAttribute("placeholder", nam);
+             div.appendChild(input);
+         }
+         function addInputInt(nam){
+             let int = document.createElement("input");
+             int.setAttribute("type", "number");
+             int.setAttribute("name", nam);
+             int.setAttribute("placeholder", nam);
+             div.appendChild(int);
+         }
+         //les select sont séparé pour pouvoir générer séparement les bonne valeur récuperer de la bdd
+         // je genere ici le select color
+         function addSelectColor(nam){
+             let selcolor = document.createElement("select");
+             selcolor.innerHTML = "{% for color in colors %}" +
+                 " <option value=\"{{ color.namecolor }}\" >{{ color.namecolor }}</option>\n\r" +
+                 " {% endfor %}";
+             selcolor.setAttribute("name", nam);
+             div.appendChild(selcolor);
+         }
+
+         //et ici le select size
+         function addSelectSize(nam){
+             let selsize = document.createElement("select");
+             selsize.innerHTML = "{% for size in sizes %}\n" +
+                 "<option value=\"{{ size.name }}\" >{{ size.name }}</option>\n" +
+                 "{% endfor %}";
+             selsize.setAttribute("name", nam);
+             div.appendChild(selsize);
+         }
+         function addField() {
+             addInput("name[]");
+             addInput("description[]");
+             addInput("reference[]");
+             addInputInt("price[]");
+             addSelectColor("color[]");
+             addSelectSize("size[]");
+             div.appendChild(document.createElement("br"));
+         }
+
      </script>
+
 
  {% endblock %}

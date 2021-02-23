@@ -21,9 +21,9 @@ class ArticleType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', TextType::class)
-            ->add('description', TextType::class)
-            ->add('price')
+//            ->add('name', TextType::class)
+//            ->add('description', TextType::class)
+//            ->add('price')
 
             ->add('material',null,[
         'mapped' => false])
@@ -36,7 +36,7 @@ class ArticleType extends AbstractType
             ->add('maintenance')
             ->add('utilisation_advice')
             ->add('guarantee')
-            ->add('reference')
+//            ->add('reference')
             ->add('gender', EntityType::class,[
                 'class' => Gender::class,
                 'choice_label' => 'genre'

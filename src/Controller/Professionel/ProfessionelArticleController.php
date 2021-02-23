@@ -43,6 +43,7 @@ class ProfessionelArticleController extends AbstractController
         $gender = $genderRepository->findAll();
         $dataTypeArticle = $typeArticleRepository->findAll();
 
+
         $article = new Article();
 
         $form = $this->createForm(ArticleType::class, $article);
@@ -52,27 +53,66 @@ class ProfessionelArticleController extends AbstractController
 
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+
+
             $color = new  Color();
             $size = new Size();
             $material = new Material();
 
-
-            $dataColors= $request->request->get('color');
+            $dataName = $request->request->get('name');
+            $dataPrice = $request->request->get('price');
+            $dataRefs = $request->request->get('reference');
+            $datadescription= $request->request->get('description');
+            $dataColors = $request->request->get('color');
             $dataSize = $request->request->get('size');
             $datamaterial = $form->get('material')->getData();
 
+//            dump($dataName);dump($dataPrice);
+//            dump($dataRefs);dump($datadescription);
+//            dump($dataColors);dump($dataSize);
+//            dd($datamaterial);
+            $entityManager = $this->container->get('doctrine')->getManager();
+            foreach ($dataName as $N){
+                $article->setName($N);
+                $entityManager->persist($article);
+            }
 
-            $color->setNameColor($dataColors);
-            $article->addColor($color);
+            foreach ($datadescription as $D){
+                $article->setDescription($D);
+                $entityManager->persist($article);
+            }
 
-            $size->setName($dataSize);
-            $article->addSize($size);
+            foreach ($dataRefs as $R){
+                $article->setReference($R);
+                $entityManager->persist($article);
+            }
+
+            foreach ($dataPrice as $P){
+                $article->setPrice($P);
+                $entityManager->persist($article);
+            }
+
+            foreach ($dataColors as $C){
+                $color->setNameColor($C);
+
+            }
+
+            $cnt = count($dataSize);
+            for ($i = 0; $i < $cnt; ++$i){
+
+                $size->setName($dataSize[$i]);
+                $article->addSize($size);
+
+                $entityManager->persist($size);
+            }
+
 
             $material->setName($datamaterial);
             $article->addMateriel($material);
-//            dd($article);
+
             $entityManager->persist($article);
-//            $entityManager->flush($article);
+            $entityManager->flush();
 
         }
 
@@ -84,6 +124,7 @@ class ProfessionelArticleController extends AbstractController
           'sizes' => $sizes,
           'genders' => $gender,
           'typeArticles' => $dataTypeArticle,
+//            'data' => $data
       ]);
     }
 

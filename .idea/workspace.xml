@@ -19,22 +19,21 @@
     <select />
   </component>
   <component name="ChangeListManager">
-
-    <list default="true" id="91b57a5b-a1a1-4a7b-90bf-aa08f5bc0f9e" name="Default Changelist" comment="gender update">
-      <change afterPath="$PROJECT_DIR$/src/Controller/ArticleController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/User/article.html.twig" afterDir="false" />
+    <list default="true" id="b60d9816-9dfc-43ba-ae46-07ae7032526d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/Asset/js/insertClothes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_02_2021_11_53_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_02_2021_11_53__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_18_02_2021_12_02_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_18_02_2021_12_02__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_02_2021_15_19_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_02_2021_15_19__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_02_2021_11_26_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_02_2021_11_26__Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/Professionel/ProfessionelArticleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Professionel/ProfessionelArticleController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Form/ArticleType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ArticleType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/Pro/InsertArticle.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Pro/InsertArticle.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Article.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Article.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/TypeArticle.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/TypeArticle.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-
-    <list default="true" id="91b57a5b-a1a1-4a7b-90bf-aa08f5bc0f9e" name="Default Changelist" comment="route forms signup">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,12 +44,14 @@
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="main" />
-      </map>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
     </option>
+  </component>
+  <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
@@ -159,57 +160,28 @@
       <path value="$PROJECT_DIR$/vendor/composer" />
     </include_path>
   </component>
-  <component name="ProjectId" id="1oVqu8ptk5N0MaiqPXcOTJdHWXv" />
+  <component name="ProjectId" id="1onkCGYfJavFonXMP34Y5igINKt" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/User" />
     <property name="vue.rearranger.settings.migration" value="true" />
-  </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/templates/User" />
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\Bluvel\templates\User" />
-    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="91b57a5b-a1a1-4a7b-90bf-aa08f5bc0f9e" name="Default Changelist" comment="" />
-      <created>1613382324946</created>
+      <changelist id="b60d9816-9dfc-43ba-ae46-07ae7032526d" name="Default Changelist" comment="" />
+      <created>1613929612470</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1613382324946</updated>
-      <workItem from="1613382326252" duration="5281000" />
-      <workItem from="1613392532148" duration="6020000" />
-      <workItem from="1613464727882" duration="2286000" />
-      <workItem from="1613468796344" duration="524000" />
-      <workItem from="1613552951281" duration="6215000" />
-      <workItem from="1613551499253" duration="3727000" />
-      <workItem from="1613557499337" duration="3379000" />
-      <workItem from="1613567435633" duration="5228000" />
+      <updated>1613929612470</updated>
+      <workItem from="1613929613822" duration="2892000" />
+      <workItem from="1613981991001" duration="7962000" />
+      <workItem from="1614067634667" duration="10568000" />
     </task>
-    <task id="LOCAL-00001" summary="gender update">
-      <created>1613383695564</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1613383695564</updated>
-    </task>
-    <task id="LOCAL-00002" summary="route forms signup">
-      <created>1613472504214</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1613472504214</updated>
-    </task>
-    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -225,37 +197,5 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="gender update" />
-    <MESSAGE value="route forms signup" />
-    <option name="LAST_COMMIT_MESSAGE" value="route forms signup" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="182" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1613553711430">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="182" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1613553711430" />
-    <state x="147" y="65" key="MergeDialog" timestamp="1613398820554">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="147" y="65" key="MergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1613398820554" />
-    <state x="541" y="391" key="NewPhpFileDialog" timestamp="1613553866891">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="541" y="391" key="NewPhpFileDialog/0.0.1440.900@0.0.1440.900" timestamp="1613553866891" />
-    <state x="613" y="115" key="RollbackChangesDialog" timestamp="1613466593732">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="613" y="115" key="RollbackChangesDialog/0.0.1536.824@0.0.1536.824" timestamp="1613466593732" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1613472521683">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1613472521683" />
-    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1613573399930">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1613573399930" />
   </component>
 </project>
